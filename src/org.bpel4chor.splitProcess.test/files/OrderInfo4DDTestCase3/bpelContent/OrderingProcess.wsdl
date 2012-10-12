@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<definitions name="OrderingProcess"
+        targetNamespace="http://www.iaas.uni-stuttgart.de"
+        xmlns:tns="http://www.iaas.uni-stuttgart.de"
+        xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+        xmlns="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+        >
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of types participating in this BPEL process 
+     The BPEL Designer will generate default request and response types
+     but you can define or import any XML Schema type and use them as part 
+     of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <types>  
+        
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="qualified" targetNamespace="http://www.iaas.uni-stuttgart.de">
+		</schema>
+	</types>
+
+	<vprop:property name="correlProperty" type="xsd:string" />
+	<vprop:propertyAlias propertyName="tns:correlProperty" messageType="tns:OrderingProcessRequestMessage" part="correlation"/>
+	<vprop:propertyAlias propertyName="tns:correlProperty" messageType="tns:OrderingProcessResponseMessage" part="correlation"/>
+	
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <message name="OrderingProcessRequestMessage">
+		<part name="status" type="xsd:string"/>
+		<part name="correlation" type="xsd:string"/>
+	</message>
+    <message name="OrderingProcessResponseMessage">
+        <part name="normal" type="xsd:string"/>
+        <part name="gold" type="xsd:string"/>
+        <part name="silver" type="xsd:string"/>
+        <part name="correlation" type="xsd:string"/>
+    </message>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+
+    <!-- portType implemented by the OrderingProcess BPEL process -->
+    <portType name="OrderingProcessPT">
+        <operation name="process">
+            <input  message="tns:OrderingProcessRequestMessage" />
+            <output message="tns:OrderingProcessResponseMessage"/>
+        </operation>
+    </portType>   
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="OrderingProcessPLT">
+        <plnk:role name="OrderingProcessProvider" portType="tns:OrderingProcessPT"/>
+    </plnk:partnerLinkType>
+    
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="OrderingProcessBinding" type="tns:OrderingProcessPT">
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<operation name="process">
+    		<soap:operation
+    			soapAction="http://www.iaas.uni-stuttgart.de/process" />
+    		<input>
+    			<soap:body use="literal" />
+    		</input>
+    		<output>
+    			<soap:body use="literal" />
+    		</output>
+    	</operation>
+    </binding>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="OrderingProcess">
+    	<port name="OrderingProcessPort" binding="tns:OrderingProcessBinding">
+    		<soap:address location="http://localhost:8080/OrderingProcess" />
+    	</port>
+    </service>
+</definitions>

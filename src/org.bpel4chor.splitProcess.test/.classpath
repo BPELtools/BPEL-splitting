@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.bpel4chor.splitProcess"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.bpel.model"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.uni-stuttgart.iaas.bpel-d.algorithm"/>
+	<classpathentry kind="lib" path="lib/jgrapht-jdk1.6.jar" sourcepath="/jgrapht-0.8.3"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

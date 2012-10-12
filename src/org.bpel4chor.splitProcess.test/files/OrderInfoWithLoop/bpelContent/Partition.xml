@@ -1,0 +1,23 @@
+<partitionSpecification>
+	<participant name="participant1">
+		<activity path="/bpel:process/bpel:flow/bpel:receive[@name='ReceiveA']" />
+		<activity path="/bpel:process/bpel:flow/bpel:assign[@name='AssignB']" />
+		<activity path="/bpel:process/bpel:flow/bpel:reply[@name='ReplyH']" />
+	</participant>
+	<participant name="participant2">
+		<activity path="/bpel:process/bpel:flow/bpel:assign[@name='AssignC']" />
+		<activity path="/bpel:process/bpel:flow/bpel:assign[@name='AssignD']" />
+	</participant>
+	<participant name="participant3">
+		<activity path="/bpel:process/bpel:flow/bpel:assign[@name='AssignE']" />
+		<activity path="/bpel:process/bpel:flow/bpel:invoke[@name='InvokeF']" />
+	</participant>
+	<participant name="participant4">
+		<activity path="/bpel:process/bpel:flow/bpel:invoke[@name='InvokeG']" />
+		<activity path="/bpel:process/bpel:flow/bpel:while/bpel:flow/bpel:assign[@name='AssignDeliverRequest']" />
+	</participant>
+	<participant name="participant5">
+		<activity path="/bpel:process/bpel:flow/bpel:while/bpel:flow/bpel:invoke[@name='InvokeJ']" />
+		<activity path="/bpel:process/bpel:flow/bpel:while/bpel:flow/bpel:assign[@name='AssignK']" />
+	</participant>
+</partitionSpecification>

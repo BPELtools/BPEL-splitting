@@ -1,0 +1,18 @@
+<!-- PWDGProcess partition specification -->
+<partitionSpecification>
+	<participant name="participant1">
+		<activity path="/bpel:process/bpel:flow/bpel:receive[@name='U']"/>
+		<activity path="/bpel:process/bpel:flow/bpel:empty[@name='V']"/>
+	</participant>
+	<participant name="participant2">
+		<activity path="/bpel:process/bpel:flow/bpel:empty[@name='T']"/>
+		<activity path="/bpel:process/bpel:flow/bpel:empty[@name='W']"/>
+	</participant>
+	<participant name="participant3">
+		<activity path="/bpel:process/bpel:flow/bpel:receive[@name='R']"/>
+		<activity path="/bpel:process/bpel:flow/bpel:receive[@name='S']"/>
+		<activity path="/bpel:process/bpel:flow/bpel:empty[@name='X']"/>
+		<activity path="/bpel:process/bpel:flow/bpel:empty[@name='Y']"/>
+		<activity path="/bpel:process/bpel:flow/bpel:empty[@name='Z']"/>
+	</participant>
+</partitionSpecification>

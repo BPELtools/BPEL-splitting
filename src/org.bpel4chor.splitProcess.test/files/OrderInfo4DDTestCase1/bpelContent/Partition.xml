@@ -1,0 +1,16 @@
+<!-- Partition Specification for OrderingProcess -->
+<partitionSpecification>
+	<participant name="x">
+		<activity path="/bpel:process/bpel:flow/bpel:receive[@name='A']"/>
+		<activity path="/bpel:process/bpel:flow/bpel:assign[@name='B']"/>
+	</participant>
+	<participant name="y">
+		<activity path="/bpel:process/bpel:flow/bpel:assign[@name='C']"/>
+	</participant>
+	<participant name="z">
+		<activity path="/bpel:process/bpel:flow/bpel:assign[@name='D']"/>
+	</participant>
+	<participant name="w">
+		<activity path="/bpel:process/bpel:flow/bpel:invoke[@name='G']"/>
+	</participant>
+</partitionSpecification>

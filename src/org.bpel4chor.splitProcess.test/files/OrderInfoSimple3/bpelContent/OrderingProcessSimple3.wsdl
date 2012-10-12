@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:null="null" xmlns:p="http://www.w3.org/2001/XMLSchema"
+	xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.iaas.uni-stuttgart.de" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+	name="OrderingProcessSimple3" targetNamespace="http://www.iaas.uni-stuttgart.de"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		SERVICE DEFINITION - A service groups a set of ports into a service unit. 
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<plnk:partnerLinkType name="OrderingProcessSimple3PT">
+		<plnk:role name="OrderProcessProvider" portType="tns:OrderingProcessSimple3" />
+	</plnk:partnerLinkType>
+	<plnk:partnerLinkType name="OrderingProcessSimple3CallbackPT">
+		<plnk:role name="OrderProcessCallback" portType="tns:OrderingProcessSimple3Callback" />
+	</plnk:partnerLinkType>
+
+	<vprop:property name="correlProperty" type="xsd:string" />
+	<vprop:propertyAlias propertyName="tns:correlProperty" messageType="tns:orderRequest" part="correlation"></vprop:propertyAlias>
+
+
+	<types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.iaas.uni-stuttgart.de"
+			elementFormDefault="qualified">
+
+		</schema>
+	</types>
+	<message name="orderRequest">
+		<part name="acountNumber" type="xsd:string" />
+		<part name="oderStatus" type="xsd:string" />
+		<part name="orderTotalPrice" type="xsd:int" />
+		<part name="status" type="xsd:string" />
+		<part name="numDeliveries" type="xsd:int" />
+		<part name="correlation" type="xsd:string" />
+	</message>
+	<message name="orderResponse">
+		<part name="text" type="xsd:string"></part>
+	</message>
+	<portType name="OrderingProcessSimple3">
+		<operation name="order">
+			<input message="tns:orderRequest" name="order" />
+		</operation>
+	</portType>
+
+	<binding name="OrderingProcessSimple3Binding" type="tns:OrderingProcessSimple3">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="order">
+			<soap:operation soapAction="www.iaas.uni-stuttgart.de/order" />
+			<input name="order">
+				<soap:body use="literal" />
+			</input>
+		</operation>
+	</binding>
+
+	<service name="OrderingProcessSimple3">
+		<port binding="tns:OrderingProcessSimple3Binding" name="OrderingProcessSimple3Port">
+			<soap:address
+				location="http://localhost:8080/ode/processes/OrderingProcessSimple3" />
+		</port>
+	</service>
+
+
+</definitions>

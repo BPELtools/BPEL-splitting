@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.bpel4chor.splitProcess">
+
+	<!-- Define the Sonar task if this hasn't been done in a common script -->
+	<taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+		<classpath path="../sonar-3.1.1/lib/sonar-ant-task-1.4.jar" />
+	</taskdef>
+
+	<property name="sonar.jdbc.url" value="jdbc:derby://localhost:1527/sonar;create=true" />
+	<property name="sonar.jdbc.driverClassName" value="org.apache.derby.jdbc.ClientDriver" />
+	<property name="sonar.jdbc.username" value="sonar" />
+	<property name="sonar.jdbc.password" value="sonar" />
+	<property name="report" value="../reports" />
+
+
+	<!-- SERVER ON A REMOTE HOST -->
+	<property name="sonar.host.url" value="http://localhost:9000" />
+
+	<!-- Add the target -->
+	<target name="sonar">
+		<!-- list of mandatories Sonar properties -->
+		<property name="sonar.sources" value="src" />
+		
+		<!-- list of optional Sonar properties -->
+		<property name="sonar.projectName" value="org.bpel4chor.splitProcess" />
+		<property name="sonar.binaries" value="bin" />
+		<property name="sonar.libraries" value="" />
+
+		<sonar:sonar key="org.bpel4chor:splitProcess" version="1.0" xmlns:sonar="antlib:org.sonar.ant" />
+	</target>
+
+	<target name="all" depends="sonar" />
+</project>

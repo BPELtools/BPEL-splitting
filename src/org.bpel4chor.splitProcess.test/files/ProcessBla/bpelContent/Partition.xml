@@ -1,0 +1,14 @@
+<!-- ProcessBla partition specification -->
+<partitionSpecification>
+	<participant name="participant1">
+		<activity path="/bpel:process/bpel:flow/bpel:receive[@name='ReceiveInput']"/>
+		<activity path="/bpel:process/bpel:flow/bpel:assign[@name='Assign']"/>
+	</participant>
+	<participant name="participant2">
+		<activity path="/bpel:process/bpel:flow/bpel:invoke[@name='InvokeFoo']"/>
+	</participant>
+	<participant name="participant3">
+		<activity path="/bpel:process/bpel:flow/bpel:assign[@name='Assign1']"/>
+		<activity path="/bpel:process/bpel:flow/bpel:invoke[@name='CallBackClient']"/>
+	</participant>
+</partitionSpecification>

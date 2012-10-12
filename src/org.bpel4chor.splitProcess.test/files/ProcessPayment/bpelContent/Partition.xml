@@ -1,0 +1,7 @@
+<!-- ProcessPayment partition specification -->
+<partitionSpecification>
+	<participant name="participant1">
+		<activity path="/bpel:process/bpel:flow/bpel:receive[@name='Receive']"/>
+	</participant>
+	
+</partitionSpecification>

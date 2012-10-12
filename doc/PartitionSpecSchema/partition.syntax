@@ -1,0 +1,10 @@
+<!--
+	PartitionSpecification consists of a set of participants.
+	A participant has attributes "name" and a set of "activity", which has an attribute "path".
+	The attribute "path" of activity is a XPath string.
+-->
+<partitionSpecification>
+	<participant name="NCName">+
+		<activity path="NCName">+
+	</partition>
+</partitionSpecification>

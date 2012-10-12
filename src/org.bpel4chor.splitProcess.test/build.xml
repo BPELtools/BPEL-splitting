@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="org.bpel4chor.splitProcess.test" >
+  
+  <!-- Define the Sonar task if this hasn't been done in a common script -->
+  <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+    <classpath path="../sonar-3.1.1/lib/sonar-ant-task-1.4.jar" />
+  </taskdef>
+  
+  <property name="sonar.jdbc.url" 
+       value="jdbc:derby://localhost:1527/sonar;create=true" />
+  <property name="sonar.jdbc.driverClassName" value="org.apache.derby.jdbc.ClientDriver" />
+  <property name="sonar.jdbc.username" value="sonar" />
+  <property name="sonar.jdbc.password" value="sonar" />
+ 
+  <!-- SERVER ON A REMOTE HOST -->
+  <property name="sonar.host.url" value="http://localhost:9000" />
+  
+  <!-- Add the target -->
+  <target name="sonar">
+    <!-- list of mandatories Sonar properties -->
+    <property name="sonar.sources" value="src" />
+  	
+  	<!-- tell Sonar that it will have to launch the execution of the unit tests and the coverage tool -->
+  	<property name="sonar.dynamicAnalysis" value="true" />
+  	
+  	<!-- Tell Sonar to use JaCoCo as the code coverage engine -->
+  	<property name="sonar.core.codeCoveragePlugin" value="jacoco" />
+  	
+  	<property name="sonar.surefire.reportsPath" value="../reports" />
+  	<property name="sonar.jacoco.reportPath" value="../reports" />
+  	
+    <!-- list of optional Sonar properties -->
+    <property name="sonar.projectName" value="org.bpel4chor.splitProcess.test" />
+    <property name="sonar.binaries" value="bin" />
+    <property name="sonar.libraries" value="" />
+
+    <sonar:sonar key="org.bpel4chor:splitProcess.test" version="1.0" xmlns:sonar="antlib:org.sonar.ant"/>
+  </target>
+
+</project>

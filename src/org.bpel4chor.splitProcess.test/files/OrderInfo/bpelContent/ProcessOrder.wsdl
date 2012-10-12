@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.iaas.uni-stuttgart.de"
+	xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" name="ProcessOrder"
+	targetNamespace="http://www.iaas.uni-stuttgart.de">
+
+	<vprop:property name="correlProperty" type="xsd:string" />
+	<vprop:propertyAlias propertyName="tns:correlProperty" messageType="tns:processOrderRequest" part="correlation" />
+	
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		SERVICE DEFINITION - A service groups a set of ports into a service unit. 
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<message name="processOrderRequest">
+		<part name="acountNumber" type="xsd:string"/>
+		<part name="oderStatus" type="xsd:string"/>
+		<part name="orderTotalPrice" type="xsd:int"/>
+		<part name="numDeliveries" type="xsd:int"/>
+		<part name="correlation" type="xsd:string"/>
+	</message>
+
+	<plnk:partnerLinkType name="ProcessOrderPT">
+		<plnk:role name="ProcessOrder" portType="tns:ProcessOrder" />
+	</plnk:partnerLinkType>
+
+	
+	<portType name="ProcessOrder">
+		<operation name="processOrder">
+			<input message="tns:processOrderRequest" />
+		</operation>
+	</portType>
+	<binding name="ProcessOrderBinding" type="tns:ProcessOrder">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="processOrder">
+			<soap:operation soapAction="http://www.iaas.uni-stuttgart.de/processOrder" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+		</operation>
+	</binding>
+	<service name="ProcessOrder">
+		<port binding="tns:ProcessOrderBinding" name="ProcessOrderPort">
+			<soap:address location="http://localhost:8080/ode/processes/ProcessOrder" />
+		</port>
+	</service>
+</definitions>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- This file is for test of the PartitionSpecReader. -->
+<!-- Do NOT change it, unless you know what you are doing. -->
+<partitionSpecification xmlns:uni="http://www.uni-stuttgart.de"
+	targetNamespace="http://www.iaas.uni-stuttgart.de" process="uni:orderProcessSimple"
+	name="OrderingProcessSpec">
+    <participant name="fragment2">
+         <pActivity path="/xpath/to/node1"/>
+         <pActivity path="/xpath/to/node2"/>
+    </participant>
+    <participant name="fragment1">
+         <pActivity path="/xpath/to/node1"/>
+         <pActivity path="/xpath/to/node2"/>
+    </participant>
+</partitionSpecification>

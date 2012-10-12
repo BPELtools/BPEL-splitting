@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/abstract"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility/"
+         abstractProcessProfile="urn:HPI_IAAS:choreography:profile:2006/12"
+         exitOnStandardFault="no"
+         expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"
+         name="Traveler"
+         queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"
+         suppressJoinFailure="no"
+         targetNamespace="urn:choreography/process"
+         xsi:schemaLocation="http://docs.oasis-open.org/wsbpel/2.0/process/abstract http://docs.oasis-open.org/wsbpel/2.0/OS/process/abstract/ws-bpel_abstract_common_base.xsd">
+   <sequence>
+      <sequence>
+         <opaqueActivity name="PlanTrip"/>
+         <invoke inputVariable="##opaque" name="SubmitTripOrder"/>
+      </sequence>
+      <pick>
+         <onMessage variable="##opaque" wsu:id="ReceiveItinerary">
+            <receive name="ReceiveETicket" suppressJoinFailure="no" variable="##opaque"/>
+         </onMessage>
+         <onMessage variable="##opaque" wsu:id="ReceiveRejectionAgency">
+            <empty/>
+         </onMessage>
+      </pick>
+   </sequence>
+</process>

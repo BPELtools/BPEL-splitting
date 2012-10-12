@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<definitions name="DeliverProcess" targetNamespace="http://www.iaas.uni-stuttgart.de"
+	xmlns:tns="http://www.iaas.uni-stuttgart.de" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop">
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		TYPE DEFINITION - List of services participating in this BPEL process The 
+		default output of the BPEL designer uses strings as input and output to the 
+		BPEL Process. But you can define or import any XML Schema type and us them 
+		as part of the message types. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.iaas.uni-stuttgart.de"
+			elementFormDefault="qualified" xmlns:Q1="http://www.iaas.uni-stuttgart.de">
+		</schema>
+	</types>
+
+	<vprop:property name="correlProperty" type="xsd:string" />
+	<vprop:propertyAlias propertyName="tns:correlProperty" messageType="tns:DeliverProcessRequestMessage" part="correlation" />
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		MESSAGE TYPE DEFINITION - Definition of the message types used as part of 
+		the port type defintions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<message name="DeliverProcessRequestMessage">
+		<part name="acountNumber" type="xsd:string" />
+		<part name="oderStatus" type="xsd:string" />
+		<part name="orderTotalPrice" type="xsd:int" />
+		<part name="status" type="xsd:string" />
+		<part name="numDeliveries" type="xsd:int" />
+		<part name="correlation" type="xsd:string" />
+	</message>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		PORT TYPE DEFINITION - A port type groups a set of operations into a logical 
+		service unit. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- portType implemented by the DeliverProcess BPEL process -->
+	<portType name="DeliverProcess">
+		<operation name="initiate">
+			<input message="tns:DeliverProcessRequestMessage" />
+		</operation>
+	</portType>
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		PARTNER LINK TYPE DEFINITION the DeliverProcess partnerLinkType binds the 
+		provider and requester portType into an asynchronous conversation. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<plnk:partnerLinkType name="DeliverProcess">
+		<plnk:role name="DeliverProcessProvider" portType="tns:DeliverProcess" />
+	</plnk:partnerLinkType>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		BINDING DEFINITION - Defines the message format and protocol details for 
+		a web service. ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<binding name="DeliverProcessBinding" type="tns:DeliverProcess">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="initiate">
+			<soap:operation soapAction="http://www.iaas.uni-stuttgart.de/initiate" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+		</operation>
+	</binding>
+
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		SERVICE DEFINITION - A service groups a set of ports into a service unit. 
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<service name="DeliverProcess">
+		<port name="DeliverProcessPort" binding="tns:DeliverProcessBinding">
+			<soap:address location="http://localhost:8080/ode/processes/DeliverProcess" />
+		</port>
+	</service>
+
+	
+</definitions>

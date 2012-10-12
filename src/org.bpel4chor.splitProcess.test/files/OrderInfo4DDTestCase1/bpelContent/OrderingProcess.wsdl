@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<definitions name="OrderingProcess"
+        targetNamespace="http://www.iaas.uni-stuttgart.de"
+        xmlns:tns="http://www.iaas.uni-stuttgart.de"
+        xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+        xmlns="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+        >
+
+
+<plnk:partnerLinkType name="OrderingProcessPLT">
+		<plnk:role name="OrderProcessProvider" portType="tns:OrderingProcessPT" />
+	</plnk:partnerLinkType>
+
+	<vprop:property name="correlProperty" type="xsd:string" />
+	<vprop:propertyAlias propertyName="tns:correlProperty" messageType="tns:OrderInfoRequestMessage" part="correlation"></vprop:propertyAlias>
+	
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of services participating in this BPEL process 
+     The default output of the BPEL designer uses strings as input and 
+     output to the BPEL Process. But you can define or import any XML 
+     Schema type and us them as part of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <types>  
+        
+		<schema xmlns="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="qualified" targetNamespace="http://www.iaas.uni-stuttgart.de">
+		</schema>
+	</types>
+
+  
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+	<message name="OrderInfoRequestMessage">
+		<part name="acountNumber" type="xsd:string"/>
+		<part name="status" type="xsd:string"/>
+		<part name="orderTotalPrice" type="xsd:int"/>
+		<part name="numDeliveries" type="xsd:int"/>
+		<part name="correlation" type="xsd:string"/>
+	</message>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- portType implemented by the OrderInfo BPEL process -->
+    <portType name="OrderingProcessPT">
+        <operation name="initiate">
+            <input message="tns:OrderInfoRequestMessage"/>
+        </operation>
+    </portType>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="OrderInfoBinding" type="tns:OrderingProcessPT">
+        <soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="initiate">
+            <soap:operation
+    			soapAction="http://www.iaas.uni-stuttgart.de/initiate"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+        </operation>
+    </binding>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="OrderInfo">
+        <port name="OrderInfoPort" binding="tns:OrderInfoBinding">
+    		<soap:address location="http://localhost:8080/OrderInfo"/>
+        </port>
+    </service>
+
+</definitions>

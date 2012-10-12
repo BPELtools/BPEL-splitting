@@ -1,0 +1,119 @@
+<class-diagram version="1.0.7" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" corner="BOTTOM_RIGHT" language="java" 
+    name="org.bpel4chor.splitprocess.partition.model.PartitionSpecification" project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/partition/model/PartitionSpecification.java" 
+    binary="false">    
+    <position x="218" y="274" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="2" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.splitprocess.partition.model.Participant" 
+    project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/partition/model/Participant.java" binary="false">    
+    <position x="73" y="551" width="182" height="211"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="3" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.splitprocess.partition.model.PActivity" 
+    project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/partition/model/PActivity.java" binary="false">    
+    <position x="416" y="653" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="4" corner="BOTTOM_RIGHT" language="java" 
+    name="org.bpel4chor.splitprocess.partition.representation.PartitionSpecReader" project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/partition/representation/PartitionSpecReader.java" 
+    binary="false">    
+    <position x="461" y="422" width="303" height="115"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="5" corner="BOTTOM_RIGHT" language="java" 
+    name="org.bpel4chor.splitprocess.partition.representation.PartitionSpecWriter" project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/partition/representation/PartitionSpecWriter.java" 
+    binary="false">    
+    <position x="804" y="422" width="325" height="115"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="6" corner="BOTTOM_RIGHT" language="java" 
+    name="org.bpel4chor.splitprocess.partition.util.PartitionRestrictionsVerificator" 
+    project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/partition/util/PartitionRestrictionsVerificator.java" 
+    binary="false">    
+    <position x="924" y="618" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="7" corner="BOTTOM_RIGHT" language="java" 
+    name="org.bpel4chor.splitprocess.partition.util.BPELNamespaceContext" project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/partition/util/BPELNamespaceContext.java" 
+    binary="false">    
+    <position x="636" y="653" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="8" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.splitprocess.partition.util.PartitionSpecUtil" 
+    project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/partition/util/PartitionSpecUtil.java" 
+    binary="false">    
+    <position x="612" y="270" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <association id="9">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="10" name="partitionSpec"/>      
+      <multiplicity id="11" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="12">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="13" name="activities"/>      
+      <multiplicity id="14" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="15">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="16" name="partitionSpec"/>      
+      <multiplicity id="17" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="18">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="19" name="participants"/>      
+      <multiplicity id="20" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" package="true" initial-value="false" signature="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="true" package="true" protected="true" private="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

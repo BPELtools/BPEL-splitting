@@ -1,0 +1,96 @@
+<class-diagram version="1.0.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true">  
+  <class id="1" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.splitprocess.utils.ActivityFinder" 
+    project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/utils/ActivityFinder.java" binary="false">    
+    <position x="849" y="300" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="false"/>    
+    </display>  
+  </class>  
+  <class id="2" corner="BOTTOM_RIGHT" language="java" 
+    name="org.bpel4chor.splitprocess.partition.model.PartitionSpecification" project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/partition/model/PartitionSpecification.java" 
+    binary="false">    
+    <position x="803" y="605" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="3" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.splitprocess.fragmentation.FragmentDuplicator" 
+    project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/fragmentation/FragmentDuplicator.java" 
+    binary="false">    
+    <position x="97" y="356" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="4" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.splitprocess.fragmentation.FragmentFactory" 
+    project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/fragmentation/FragmentFactory.java" binary="false">    
+    <position x="-37" y="249" width="259" height="55"/>    
+    <display autosize="false" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="5" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.splitprocess.RuntimeData" 
+    project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/RuntimeData.java" binary="false">    
+    <position x="113" y="604" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="false" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <class id="6" corner="BOTTOM_RIGHT" language="java" name="org.bpel4chor.splitprocess.fragmentation.ProcessFragmenter" 
+    project="org.bpel4chor.splitProcess" 
+    file="/org.bpel4chor.splitProcess/src/org/bpel4chor/splitprocess/fragmentation/ProcessFragmenter.java" 
+    binary="false">    
+    <position x="431" y="304" width="-1" height="-1"/>    
+    <display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="false" protected="false" private="false"/>    
+    </display>  
+  </class>  
+  <dependency id="7">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <association id="8">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="9" name="partitionSpec"/>      
+      <multiplicity id="10" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="11">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="12" name="partitionSpec">        
+        <position x="634" y="448" width="83" height="16"/>      
+      </attribute>      
+      <multiplicity id="13" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="14">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="15">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="false" package="true" initial-value="false" signature="true" 
+    visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="true" package="true" protected="true" private="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

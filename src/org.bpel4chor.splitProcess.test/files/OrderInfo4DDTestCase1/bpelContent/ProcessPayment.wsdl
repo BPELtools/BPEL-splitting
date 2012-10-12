@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:null="null" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.iaas.uni-stuttgart.de" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"
+	name="ProcessPayment" targetNamespace="http://www.iaas.uni-stuttgart.de">
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+		SERVICE DEFINITION - A service groups a set of ports into a service unit. 
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<vprop:property name="correlProperty" type="xsd:string" />
+	<vprop:propertyAlias propertyName="tns:correlProperty" messageType="tns:processPaymentRequest" part="correlation"></vprop:propertyAlias>
+
+
+	<message name="processPaymentRequest">
+		<part name="amt" type="xsd:int" />
+		<part name="actNum" type="xsd:string" />
+		<part name="correlation" type="xsd:string" />
+	</message>
+
+	<plnk:partnerLinkType name="ProcessPaymentPLT">
+		<plnk:role name="ProcessPayment" portType="tns:ProcessPayment" />
+	</plnk:partnerLinkType>
+
+	<portType name="ProcessPayment">
+		<operation name="processPayment">
+			<input message="tns:processPaymentRequest" />
+		</operation>
+	</portType>
+	<binding name="ProcessPaymentBinding" type="tns:ProcessPayment">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<operation name="processPayment">
+			<soap:operation soapAction="http://www.iaas.uni-stuttgart.de/NewOperation" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+		</operation>
+	</binding>
+	<service name="ProcessPayment">
+		<port binding="tns:ProcessPaymentBinding" name="ProcessPaymentPort">
+			<soap:address location="http://localhost:8080/ode/processes/ProcessPayment" />
+		</port>
+	</service>
+</definitions>

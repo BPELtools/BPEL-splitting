@@ -1,0 +1,9 @@
+<!-- OrderingProcessSimple1 partition specification -->
+<partitionSpecification>
+	<participant name="participant1">
+		<activity path="/bpel:process/bpel:flow/bpel:receive[@name='ReceiveA']"/>
+	</participant>
+	<participant name="participant2">
+		<activity path="/bpel:process/bpel:flow/bpel:assign[@name='AssignB']"/>
+	</participant>
+</partitionSpecification>

@@ -1,0 +1,6 @@
+<!-- Partition Specification for DeliverProcess -->
+<partitionSpecification>
+	<participant name="x">
+		<activity path="/bpel:process/bpel:flow/bpel:receive[@name='Receive']"/>
+	</participant>
+</partitionSpecification>
