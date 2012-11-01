@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bpel4chor.splitprocess.exceptions.LinkNotFoundException;
-import org.bpel4chor.utils.ActivityIterator;
-import org.bpel4chor.utils.MyBPELUtils;
-import org.bpel4chor.utils.exceptions.AmbiguousPropertyForLinkException;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Link;
 import org.eclipse.bpel.model.Process;
 import org.eclipse.bpel.model.Target;
 import org.eclipse.bpel.model.Targets;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.ActivityIterator;
+import de.uni_stuttgart.iaas.bpel.model.utilities.exceptions.AmbiguousPropertyForLinkException;
 
 /**
  * LinkFinder looks up the link in the process with given criterion.

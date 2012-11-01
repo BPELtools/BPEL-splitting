@@ -11,9 +11,6 @@ import org.bpel4chor.splitprocess.utils.NameGenerator;
 import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
 import org.bpel4chor.utils.BPEL4ChorFactory;
 import org.bpel4chor.utils.BPEL4ChorUtil;
-import org.bpel4chor.utils.MyBPELUtils;
-import org.bpel4chor.utils.MyWSDLUtil;
-import org.bpel4chor.utils.exceptions.AmbiguousPropertyForLinkException;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELFactory;
 import org.eclipse.bpel.model.Catch;
@@ -42,6 +39,10 @@ import org.eclipse.wst.wsdl.Definition;
 import org.eclipse.wst.wsdl.Message;
 import org.eclipse.wst.wsdl.Operation;
 import org.eclipse.wst.wsdl.PortType;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
+import de.uni_stuttgart.iaas.bpel.model.utilities.exceptions.AmbiguousPropertyForLinkException;
 
 /**
  * BlockBuilder creates sending block, receiving block, and the prerequisites in

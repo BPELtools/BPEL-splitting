@@ -17,6 +17,10 @@ import javax.xml.namespace.QName;
 
 import junit.framework.Assert;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
+import de.uni_stuttgart.iaas.bpel.model.utilities.exceptions.AmbiguousPropertyForLinkException;
+
 import org.apache.log4j.Logger;
 import org.bpel4chor.model.grounding.impl.Grounding;
 import org.bpel4chor.splitprocess.RuntimeData;
@@ -43,9 +47,6 @@ import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
 import org.bpel4chor.splitprocess.utils.VariableResolver;
 import org.bpel4chor.utils.BPEL4ChorReader;
 import org.bpel4chor.utils.BPEL4ChorUtil;
-import org.bpel4chor.utils.MyBPELUtils;
-import org.bpel4chor.utils.MyWSDLUtil;
-import org.bpel4chor.utils.exceptions.AmbiguousPropertyForLinkException;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELPlugin;
@@ -132,7 +133,7 @@ public class DataDependencyFragmenterTestCase2 {
 		process = loadBPEL(bpelURI);
 
 		// load wsdl
-		definition = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		definition = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfo4DDTestCase2\\bpelContent\\OrderingProcess.wsdl");
 
 		// partition specification

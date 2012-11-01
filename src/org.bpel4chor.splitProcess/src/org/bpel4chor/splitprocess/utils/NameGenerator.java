@@ -8,13 +8,14 @@ import javax.wsdl.Operation;
 import javax.wsdl.PortType;
 
 import org.bpel4chor.model.topology.impl.Topology;
-import org.bpel4chor.utils.ActivityIterator;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Process;
 import org.eclipse.bpel.model.Variable;
 import org.eclipse.bpel.model.partnerlinktype.PartnerLinkType;
 import org.eclipse.bpel.model.partnerlinktype.Role;
 import org.eclipse.wst.wsdl.Definition;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.ActivityIterator;
 
 /**
  * NameGenerator creates unique names inside the given BPEL process, WSDL

@@ -15,8 +15,6 @@ import org.bpel4chor.splitprocess.fragmentation.ProcessFragmenter;
 import org.bpel4chor.splitprocess.partition.model.PartitionSpecification;
 import org.bpel4chor.splitprocess.partition.representation.PartitionSpecReader;
 import org.bpel4chor.utils.BPEL4ChorReader;
-import org.bpel4chor.utils.MyBPELUtils;
-import org.bpel4chor.utils.exceptions.AmbiguousPropertyForLinkException;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELPlugin;
@@ -42,6 +40,10 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
+import de.uni_stuttgart.iaas.bpel.model.utilities.exceptions.AmbiguousPropertyForLinkException;
 
 public class ControlLinkFragmenterTest {
 	static File testFileDir = null;
@@ -76,7 +78,7 @@ public class ControlLinkFragmenterTest {
 		Resource resource = resourceSet.getResource(uri, true);
 		process = (Process) resource.getContents().get(0);
 
-		definition = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		definition = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfoSimple3\\bpelContent\\OrderingProcessSimple3.wsdl");
 
 		// partition specification

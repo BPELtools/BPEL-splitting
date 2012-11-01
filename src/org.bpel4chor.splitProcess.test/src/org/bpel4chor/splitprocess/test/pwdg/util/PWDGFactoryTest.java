@@ -16,6 +16,9 @@ import java.util.Set;
 
 import javax.xml.bind.JAXBException;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
+
 import org.bpel4chor.splitprocess.exceptions.PWDGException;
 import org.bpel4chor.splitprocess.exceptions.PartitionSpecificationException;
 import org.bpel4chor.splitprocess.partition.model.Participant;
@@ -27,7 +30,6 @@ import org.bpel4chor.splitprocess.pwdg.model.WDG;
 import org.bpel4chor.splitprocess.pwdg.model.WDGNode;
 import org.bpel4chor.splitprocess.pwdg.util.PWDGFactory;
 import org.bpel4chor.utils.BPEL4ChorReader;
-import org.bpel4chor.utils.MyBPELUtils;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELPlugin;
 import org.eclipse.bpel.model.Process;
@@ -89,7 +91,7 @@ public class PWDGFactoryTest {
 		String bpelURI = testFileDir.getAbsolutePath() + "\\PWDGProcess\\bpelContent\\PWDGProcess.bpel";
 		process = loadBPEL(bpelURI);
 
-		definition = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		definition = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfoSimple2\\bpelContent\\OrderingProcessSimple2.wsdl");
 
 		// partition specification

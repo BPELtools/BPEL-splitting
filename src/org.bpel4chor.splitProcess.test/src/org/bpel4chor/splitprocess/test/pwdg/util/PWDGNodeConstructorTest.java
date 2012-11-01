@@ -18,6 +18,8 @@ import java.util.Set;
 
 import javax.xml.bind.JAXBException;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+
 import org.bpel4chor.splitprocess.exceptions.PartitionSpecificationException;
 import org.bpel4chor.splitprocess.partition.model.Participant;
 import org.bpel4chor.splitprocess.partition.model.PartitionSpecification;
@@ -27,7 +29,6 @@ import org.bpel4chor.splitprocess.pwdg.model.PWDGNode;
 import org.bpel4chor.splitprocess.pwdg.model.WDG;
 import org.bpel4chor.splitprocess.pwdg.model.WDGNode;
 import org.bpel4chor.splitprocess.pwdg.util.PWDGNodeConstructor;
-import org.bpel4chor.utils.MyBPELUtils;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELFactory;
 import org.eclipse.bpel.model.BPELPlugin;

@@ -8,7 +8,6 @@ import java.io.File;
 
 import org.bpel4chor.splitprocess.exceptions.LinkNotFoundException;
 import org.bpel4chor.splitprocess.utils.LinkFinder;
-import org.bpel4chor.utils.exceptions.AmbiguousPropertyForLinkException;
 import org.eclipse.bpel.model.BPELPlugin;
 import org.eclipse.bpel.model.Link;
 import org.eclipse.bpel.model.Process;
@@ -26,6 +25,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.exceptions.AmbiguousPropertyForLinkException;
 
 public class LinkFinderTest {
 

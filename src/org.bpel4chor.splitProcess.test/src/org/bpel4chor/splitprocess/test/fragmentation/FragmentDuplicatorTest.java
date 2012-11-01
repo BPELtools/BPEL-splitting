@@ -17,7 +17,6 @@ import org.bpel4chor.splitprocess.partition.model.PartitionSpecification;
 import org.bpel4chor.splitprocess.partition.representation.PartitionSpecReader;
 import org.bpel4chor.splitprocess.utils.ActivityFinder;
 import org.bpel4chor.utils.BPEL4ChorReader;
-import org.bpel4chor.utils.FragmentDuplicator;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELPlugin;
 import org.eclipse.bpel.model.Condition;
@@ -49,6 +48,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.FragmentDuplicator;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
 
 /**
  * Test for FragmentDuplicator
@@ -92,7 +94,7 @@ public class FragmentDuplicatorTest {
 			// load wsdl
 			String wsdlUri = testFileDir + File.separator + "OrderInfoSimple3" + File.separator
 					+ "bpelContent" + File.separator + "OrderingProcessSimple3.wsdl";
-			defn = BPEL4ChorReader.readWSDL(wsdlUri);
+			defn = MyWSDLUtil.readWSDL(wsdlUri);
 
 			// define Activity Finder
 			finder = new ActivityFinder(process);

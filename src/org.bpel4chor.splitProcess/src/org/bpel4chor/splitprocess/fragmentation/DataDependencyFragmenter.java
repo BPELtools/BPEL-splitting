@@ -30,11 +30,8 @@ import org.bpel4chor.splitprocess.utils.NameGenerator;
 import org.bpel4chor.splitprocess.utils.RandomIdGenerator;
 import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
 import org.bpel4chor.splitprocess.utils.VariableResolver;
-import org.bpel4chor.utils.ActivityIterator;
 import org.bpel4chor.utils.BPEL4ChorFactory;
 import org.bpel4chor.utils.BPEL4ChorUtil;
-import org.bpel4chor.utils.MyBPELUtils;
-import org.bpel4chor.utils.MyWSDLUtil;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELFactory;
@@ -70,6 +67,9 @@ import org.eclipse.wst.wsdl.Part;
 import org.eclipse.wst.wsdl.PortType;
 import org.jgrapht.graph.DefaultEdge;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.ActivityIterator;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
 import de.uni_stuttgart.iaas.bpel_d.algorithm.analysis.AnalysisResult;
 
 /**

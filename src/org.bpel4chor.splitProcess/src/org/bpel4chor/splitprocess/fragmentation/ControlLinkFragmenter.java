@@ -9,15 +9,16 @@ import org.bpel4chor.model.topology.impl.Topology;
 import org.bpel4chor.splitprocess.RuntimeData;
 import org.bpel4chor.splitprocess.exceptions.SplitControlLinkException;
 import org.bpel4chor.splitprocess.partition.model.PartitionSpecification;
-import org.bpel4chor.utils.ActivityIterator;
-import org.bpel4chor.utils.MyBPELUtils;
-import org.bpel4chor.utils.exceptions.AmbiguousPropertyForLinkException;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Link;
 import org.eclipse.bpel.model.Process;
 import org.eclipse.bpel.model.Source;
 import org.eclipse.bpel.model.Target;
 import org.eclipse.wst.wsdl.Definition;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.ActivityIterator;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.exceptions.AmbiguousPropertyForLinkException;
 
 /**
  * ControlLinkFragmenter split the control link.

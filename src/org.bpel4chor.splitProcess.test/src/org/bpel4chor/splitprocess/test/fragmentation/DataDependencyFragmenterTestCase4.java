@@ -13,6 +13,9 @@ import java.util.Set;
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
+
 import org.bpel4chor.splitprocess.RuntimeData;
 import org.bpel4chor.splitprocess.dataflowanalysis.AnalysisResultParser;
 import org.bpel4chor.splitprocess.dataflowanalysis.DataFlowAnalyzer;
@@ -35,7 +38,6 @@ import org.bpel4chor.splitprocess.pwdg.util.PWDGFactory;
 import org.bpel4chor.splitprocess.pwdg.util.WDGFactory;
 import org.bpel4chor.splitprocess.utils.VariableResolver;
 import org.bpel4chor.utils.BPEL4ChorReader;
-import org.bpel4chor.utils.MyBPELUtils;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELPlugin;
@@ -112,7 +114,7 @@ public class DataDependencyFragmenterTestCase4 {
 		process = loadBPEL(bpelURI);
 
 		// load wsdl
-		definition = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		definition = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfo4DDTestCase3\\bpelContent\\OrderingProcess.wsdl");
 
 		// partition specification

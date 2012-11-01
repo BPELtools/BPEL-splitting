@@ -14,8 +14,8 @@ import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELExtensibleElement;
 import org.eclipse.bpel.model.Variable;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.Utility;
 import de.uni_stuttgart.iaas.bpel_d.algorithm.analysis.AnalysisResult;
-import de.uni_stuttgart.iaas.bpel_d.algorithm.analysis.Utility;
 import de.uni_stuttgart.iaas.bpel_d.algorithm.infrastructure.InOut;
 import de.uni_stuttgart.iaas.bpel_d.algorithm.infrastructure.Placement;
 import de.uni_stuttgart.iaas.bpel_d.algorithm.infrastructure.Writes;

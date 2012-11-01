@@ -11,6 +11,9 @@ import org.bpel4chor.utils.BPEL4ChorReader;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
+
 public class SplitProcessMainCmdTest {
 
 	String bpelFilePath;
@@ -42,7 +45,7 @@ public class SplitProcessMainCmdTest {
 	@Test
 	public void testReadWSDL() throws WSDLException, IOException {
 		System.out.println(wsdlURI);
-		BPEL4ChorReader.readWSDL(wsdlURI);
+		MyWSDLUtil.readWSDL(wsdlURI);
 
 	}
 }

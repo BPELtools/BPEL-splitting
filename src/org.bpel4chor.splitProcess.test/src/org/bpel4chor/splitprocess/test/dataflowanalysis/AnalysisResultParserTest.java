@@ -9,10 +9,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+
 import org.bpel4chor.splitprocess.dataflowanalysis.AnalysisResultParser;
 import org.bpel4chor.splitprocess.dataflowanalysis.DataFlowAnalyzer;
 import org.bpel4chor.splitprocess.dataflowanalysis.QueryWriterSet;
-import org.bpel4chor.utils.MyBPELUtils;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELPlugin;
 import org.eclipse.bpel.model.Process;

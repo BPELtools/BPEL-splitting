@@ -9,9 +9,6 @@ import javax.xml.namespace.QName;
 import org.bpel4chor.splitprocess.exceptions.ActivityNotFoundException;
 import org.bpel4chor.splitprocess.utils.ActivityFinder;
 import org.bpel4chor.utils.BPEL4ChorReader;
-import org.bpel4chor.utils.MyBPELUtils;
-import org.bpel4chor.utils.MyWSDLUtil;
-import org.bpel4chor.utils.exceptions.AmbiguousPropertyForLinkException;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELFactory;
@@ -39,6 +36,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
+import de.uni_stuttgart.iaas.bpel.model.utilities.exceptions.AmbiguousPropertyForLinkException;
+
 public class MyBPELUtilsTest {
 	static File testFileDir = null;
 
@@ -64,7 +65,7 @@ public class MyBPELUtilsTest {
 		Resource resource = resourceSet.getResource(uri, true);
 		process = (Process) resource.getContents().get(0);
 
-		defn = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		defn = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfo\\bpelContent\\OrderingProcess.wsdl");
 	}
 

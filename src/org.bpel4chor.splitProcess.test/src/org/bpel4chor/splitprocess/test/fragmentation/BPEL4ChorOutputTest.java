@@ -36,6 +36,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
 import de.uni_stuttgart.iaas.bpel_d.algorithm.analysis.AnalysisResult;
 
 /**
@@ -119,7 +120,7 @@ public class BPEL4ChorOutputTest {
 		process = loadBPEL(bpelURI);
 
 		// load wsdl
-		definition = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		definition = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfoSimple1\\bpelContent\\OrderingProcessSimple1.wsdl");
 
 		// partition specification
@@ -156,7 +157,7 @@ public class BPEL4ChorOutputTest {
 		process = loadBPEL(bpelURI);
 
 		// load wsdl
-		definition = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		definition = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfo4DDTestCase1\\bpelContent\\OrderingProcess.wsdl");
 
 		// partition specification
@@ -192,7 +193,7 @@ public class BPEL4ChorOutputTest {
 		process = loadBPEL(bpelURI);
 
 		// load wsdl
-		definition = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		definition = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfo4DDTestCase2\\bpelContent\\OrderingProcess.wsdl");
 
 		// partition specification
@@ -229,7 +230,7 @@ public class BPEL4ChorOutputTest {
 		process = loadBPEL(bpelURI);
 
 		// load wsdl
-		definition = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		definition = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfo4DDTestCase3\\bpelContent\\OrderingProcess.wsdl");
 
 		// partition specification
@@ -266,7 +267,7 @@ public class BPEL4ChorOutputTest {
 		process = loadBPEL(bpelURI);
 
 		// load wsdl
-		definition = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		definition = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfo4DDTestCase3\\bpelContent\\OrderingProcess.wsdl");
 
 		// partition specification

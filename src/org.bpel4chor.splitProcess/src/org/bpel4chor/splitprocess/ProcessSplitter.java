@@ -19,9 +19,10 @@ import org.bpel4chor.splitprocess.partition.representation.PartitionSpecReader;
 import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
 import org.bpel4chor.utils.BPEL4ChorReader;
 import org.bpel4chor.utils.BPEL4ChorWriter;
-import org.bpel4chor.utils.MyWSDLUtil;
 import org.eclipse.bpel.model.Process;
 import org.eclipse.wst.wsdl.Definition;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
 
 /**
  * The BPEL Process Splitter reads in a BPEL process and a partition

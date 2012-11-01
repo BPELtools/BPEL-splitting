@@ -10,12 +10,13 @@ import java.io.IOException;
 import javax.wsdl.WSDLException;
 import javax.xml.namespace.QName;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
+
 import org.bpel4chor.splitprocess.fragmentation.FragmentFactory;
 import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
 import org.bpel4chor.utils.BPEL4ChorReader;
 import org.bpel4chor.utils.BPEL4ChorWriter;
-import org.bpel4chor.utils.MyBPELUtils;
-import org.bpel4chor.utils.MyWSDLUtil;
 import org.eclipse.bpel.model.BPELFactory;
 import org.eclipse.bpel.model.BPELPlugin;
 import org.eclipse.bpel.model.From;
@@ -78,7 +79,7 @@ public class FragmentFactoryTest {
 		process = (Process) resource.getContents().get(0);
 
 		// load definition
-		defn = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		defn = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfo\\bpelContent\\OrderingProcess.wsdl");
 	}
 

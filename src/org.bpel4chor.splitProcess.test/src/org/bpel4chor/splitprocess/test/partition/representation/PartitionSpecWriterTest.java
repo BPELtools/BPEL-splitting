@@ -14,13 +14,14 @@ import java.util.Set;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+
 import org.bpel4chor.splitprocess.exceptions.PartitionSpecificationException;
 import org.bpel4chor.splitprocess.partition.model.Participant;
 import org.bpel4chor.splitprocess.partition.model.PartitionSpecification;
 import org.bpel4chor.splitprocess.partition.representation.PartitionSpecReader;
 import org.bpel4chor.splitprocess.partition.representation.PartitionSpecWriter;
 import org.bpel4chor.utils.BPEL4ChorConstants;
-import org.bpel4chor.utils.MyBPELUtils;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELPlugin;
 import org.eclipse.bpel.model.Process;

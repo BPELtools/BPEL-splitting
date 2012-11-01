@@ -5,9 +5,6 @@ import javax.xml.namespace.QName;
 import org.apache.log4j.Logger;
 import org.bpel4chor.splitprocess.utils.NameGenerator;
 import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
-import org.bpel4chor.utils.FragmentDuplicator;
-import org.bpel4chor.utils.MyBPELUtils;
-import org.bpel4chor.utils.MyWSDLUtil;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELFactory;
@@ -39,6 +36,10 @@ import org.eclipse.wst.wsdl.Part;
 import org.eclipse.wst.wsdl.PortType;
 import org.eclipse.wst.wsdl.WSDLFactory;
 import org.eclipse.xsd.util.XSDConstants;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.FragmentDuplicator;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
 
 /**
  * FragmentFactory creates all kinds of stuffs while fragmenting process,

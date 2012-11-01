@@ -13,8 +13,6 @@ import org.bpel4chor.splitprocess.pwdg.model.PWDG;
 import org.bpel4chor.splitprocess.pwdg.model.PWDGNode;
 import org.bpel4chor.splitprocess.utils.RandomIdGenerator;
 import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
-import org.bpel4chor.utils.MyBPELUtils;
-import org.bpel4chor.utils.MyWSDLUtil;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELFactory;
 import org.eclipse.bpel.model.PartnerLink;
@@ -34,6 +32,9 @@ import org.eclipse.wst.wsdl.Part;
 import org.eclipse.wst.wsdl.PortType;
 import org.eclipse.wst.wsdl.WSDLFactory;
 import org.eclipse.xsd.util.XSDConstants;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
 
 /**
  * This DataDependencyHelper provides necessary stuffs before the local resolver

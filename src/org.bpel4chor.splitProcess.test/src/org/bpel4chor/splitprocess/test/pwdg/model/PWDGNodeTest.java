@@ -10,7 +10,6 @@ import java.util.Set;
 
 import org.bpel4chor.splitprocess.pwdg.model.PWDGNode;
 import org.bpel4chor.splitprocess.pwdg.model.WDGNode;
-import org.bpel4chor.utils.MyBPELUtils;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELFactory;
 import org.eclipse.bpel.model.BPELPlugin;

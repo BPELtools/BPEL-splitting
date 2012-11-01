@@ -23,6 +23,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
+
 public class NameGeneratorTest {
 
 	static File testFileDir = null;
@@ -47,7 +49,7 @@ public class NameGeneratorTest {
 		Resource resource = resourceSet.getResource(uri, true);
 		process = (Process) resource.getContents().get(0);
 
-		defn = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		defn = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfo\\bpelContent\\OrderingProcess.wsdl");
 	}
 

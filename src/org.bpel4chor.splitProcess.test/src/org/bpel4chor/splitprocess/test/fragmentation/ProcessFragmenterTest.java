@@ -14,6 +14,9 @@ import javax.xml.namespace.QName;
 
 import junit.framework.Assert;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
+
 import org.apache.log4j.Logger;
 import org.bpel4chor.splitprocess.RuntimeData;
 import org.bpel4chor.splitprocess.exceptions.ActivityNotFoundException;
@@ -27,8 +30,6 @@ import org.bpel4chor.splitprocess.test.TestUtil;
 import org.bpel4chor.splitprocess.utils.ActivityFinder;
 import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
 import org.bpel4chor.utils.BPEL4ChorReader;
-import org.bpel4chor.utils.MyBPELUtils;
-import org.bpel4chor.utils.MyWSDLUtil;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELExtensibleElement;
@@ -185,7 +186,7 @@ public class ProcessFragmenterTest extends TestUtil {
 		// the test target
 		String wsdlURI = testFileDir.getAbsolutePath() + File.separator + "OrderInfoSimple3"
 				+ File.separator + "bpelContent" + File.separator + "OrderingProcessSimple3.wsdl";
-		Definition defn = BPEL4ChorReader.readWSDL(wsdlURI);
+		Definition defn = MyWSDLUtil.readWSDL(wsdlURI);
 		data3 = new RuntimeData(nonSplitProcess3, partitionSpec3, defn);
 		fragmenter3 = new ProcessFragmenterTestWrapper(data3);
 
@@ -225,7 +226,7 @@ public class ProcessFragmenterTest extends TestUtil {
 		// the test target
 		String wsdlURI = testFileDir + File.separator + "OrderInfoWithLoop" + File.separator
 				+ "bpelContent" + File.separator + "OrderingProcess.wsdl";
-		Definition defn = BPEL4ChorReader.readWSDL(wsdlURI);
+		Definition defn = MyWSDLUtil.readWSDL(wsdlURI);
 		data4 = new RuntimeData(nonSplitProcess4, partitionSpec4, defn);
 		fragmenter4 = new ProcessFragmenterTestWrapper(data4);
 
@@ -249,7 +250,7 @@ public class ProcessFragmenterTest extends TestUtil {
 		// definition
 		String wsdlURI = testFileDir.getAbsolutePath() + File.separator + "OrderInfo4DDTestCase1"
 				+ File.separator + "bpelContent" + File.separator + "OrderingProcess.wsdl";
-		Definition nonSplitDefn = BPEL4ChorReader.readWSDL(wsdlURI);
+		Definition nonSplitDefn = MyWSDLUtil.readWSDL(wsdlURI);
 
 		// runtime data
 		RuntimeData data = new RuntimeData(nonSplitProcess, partitionSpec, nonSplitDefn);
@@ -352,7 +353,7 @@ public class ProcessFragmenterTest extends TestUtil {
 		// definition
 		String wsdlURI = testFileDir.getAbsolutePath() + File.separator + "OrderInfo4DDTestCase1"
 				+ File.separator + "bpelContent" + File.separator + "OrderingProcess.wsdl";
-		Definition nonSplitDefn = BPEL4ChorReader.readWSDL(wsdlURI);
+		Definition nonSplitDefn = MyWSDLUtil.readWSDL(wsdlURI);
 
 		// runtime data
 		RuntimeData data = new RuntimeData(nonSplitProcess, partitionSpec, nonSplitDefn);
@@ -482,7 +483,7 @@ public class ProcessFragmenterTest extends TestUtil {
 		// definition
 		String wsdlURI = testFileDir.getAbsolutePath() + File.separator + "OrderInfo4DDTestCase2"
 				+ File.separator + "bpelContent" + File.separator + "OrderingProcess.wsdl";
-		Definition nonSplitDefn = BPEL4ChorReader.readWSDL(wsdlURI);
+		Definition nonSplitDefn = MyWSDLUtil.readWSDL(wsdlURI);
 
 		// runtime data
 		RuntimeData data = new RuntimeData(nonSplitProcess, partitionSpec, nonSplitDefn);
@@ -636,7 +637,7 @@ public class ProcessFragmenterTest extends TestUtil {
 		// definition
 		String wsdlURI = testFileDir.getAbsolutePath() + File.separator + "OrderInfo4DDTestCase1"
 				+ File.separator + "bpelContent" + File.separator + "OrderingProcess.wsdl";
-		Definition nonSplitDefn = BPEL4ChorReader.readWSDL(wsdlURI);
+		Definition nonSplitDefn = MyWSDLUtil.readWSDL(wsdlURI);
 
 		// runtime data
 		RuntimeData data = new RuntimeData(nonSplitProcess, partitionSpec, nonSplitDefn);
@@ -775,7 +776,7 @@ public class ProcessFragmenterTest extends TestUtil {
 		// definition
 		String wsdlURI = testFileDir.getAbsolutePath() + File.separator + "OrderInfo4DDTestCase1"
 				+ File.separator + "bpelContent" + File.separator + "OrderingProcess.wsdl";
-		Definition nonSplitDefn = BPEL4ChorReader.readWSDL(wsdlURI);
+		Definition nonSplitDefn = MyWSDLUtil.readWSDL(wsdlURI);
 
 		// runtime data
 		RuntimeData data = new RuntimeData(nonSplitProcess, partitionSpec, nonSplitDefn);
@@ -910,7 +911,7 @@ public class ProcessFragmenterTest extends TestUtil {
 		// definition
 		String wsdlURI = testFileDir.getAbsolutePath() + File.separator + "OrderInfo4DDTestCase1"
 				+ File.separator + "bpelContent" + File.separator + "OrderingProcess.wsdl";
-		Definition nonSplitDefn = BPEL4ChorReader.readWSDL(wsdlURI);
+		Definition nonSplitDefn = MyWSDLUtil.readWSDL(wsdlURI);
 
 		// runtime data
 		RuntimeData data = new RuntimeData(nonSplitProcess, partitionSpec, nonSplitDefn);
@@ -988,7 +989,7 @@ public class ProcessFragmenterTest extends TestUtil {
 		// definition
 		String wsdlURI = testFileDir.getAbsolutePath() + File.separator + "OrderInfo4DDTestCase1"
 				+ File.separator + "bpelContent" + File.separator + "OrderingProcess.wsdl";
-		Definition nonSplitDefn = BPEL4ChorReader.readWSDL(wsdlURI);
+		Definition nonSplitDefn = MyWSDLUtil.readWSDL(wsdlURI);
 
 		// runtime data
 		RuntimeData data = new RuntimeData(nonSplitProcess, partitionSpec, nonSplitDefn);

@@ -35,7 +35,6 @@ import org.bpel4chor.splitprocess.pwdg.util.PWDGFactory;
 import org.bpel4chor.splitprocess.pwdg.util.WDGFactory;
 import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
 import org.bpel4chor.utils.BPEL4ChorReader;
-import org.bpel4chor.utils.MyBPELUtils;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELFactory;
 import org.eclipse.bpel.model.BPELPlugin;
@@ -55,6 +54,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
 import de.uni_stuttgart.iaas.bpel_d.algorithm.analysis.AnalysisResult;
 
 public class DataDependencyFragmenterTest {
@@ -90,7 +91,7 @@ public class DataDependencyFragmenterTest {
 		process = loadBPEL(bpelURI);
 
 		// load wsdl
-		definition = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		definition = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfo\\bpelContent\\OrderingProcess.wsdl");
 
 		// partition specification

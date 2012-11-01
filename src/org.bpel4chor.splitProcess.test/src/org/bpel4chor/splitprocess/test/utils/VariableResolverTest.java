@@ -16,7 +16,6 @@ import org.bpel4chor.splitprocess.utils.ActivityFinder;
 import org.bpel4chor.splitprocess.utils.VariableResolver;
 import org.bpel4chor.splitprocess.utils.VariableUtil;
 import org.bpel4chor.utils.BPEL4ChorReader;
-import org.bpel4chor.utils.MyBPELUtils;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELPlugin;
@@ -34,6 +33,8 @@ import org.eclipse.wst.wsdl.internal.util.WSDLResourceFactoryImpl;
 import org.eclipse.xsd.util.XSDResourceFactoryImpl;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
 
 /**
  * Test for VariableResolver

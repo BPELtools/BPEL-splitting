@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.bpel4chor.splitprocess.exceptions.ActivityNotFoundException;
 import org.bpel4chor.splitprocess.exceptions.ParentNotFoundException;
-import org.bpel4chor.utils.MyBPELUtils;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELExtensibleElement;

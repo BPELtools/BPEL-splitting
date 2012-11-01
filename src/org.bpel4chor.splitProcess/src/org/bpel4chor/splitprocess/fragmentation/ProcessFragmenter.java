@@ -22,9 +22,6 @@ import org.bpel4chor.splitprocess.utils.VariableResolver;
 import org.bpel4chor.splitprocess.utils.VariableUtil;
 import org.bpel4chor.utils.BPEL4ChorConstants;
 import org.bpel4chor.utils.BPEL4ChorFactory;
-import org.bpel4chor.utils.FragmentDuplicator;
-import org.bpel4chor.utils.MyBPELUtils;
-import org.bpel4chor.utils.MyWSDLUtil;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELExtensibleElement;
 import org.eclipse.bpel.model.BPELFactory;
@@ -57,6 +54,10 @@ import org.eclipse.wst.wsdl.PortType;
 import org.eclipse.xsd.XSDFactory;
 import org.eclipse.xsd.XSDTypeDefinition;
 import org.eclipse.xsd.util.XSDConstants;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.FragmentDuplicator;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
 
 /**
  * ProcessFragmenter fragments the main process into smaller fragment processes

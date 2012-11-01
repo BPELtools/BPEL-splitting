@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.bpel4chor.utils.ActivityIterator;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELPlugin;
 import org.eclipse.bpel.model.Process;
@@ -25,6 +24,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.ActivityIterator;
 
 public class ActivityIteratorTest {
 

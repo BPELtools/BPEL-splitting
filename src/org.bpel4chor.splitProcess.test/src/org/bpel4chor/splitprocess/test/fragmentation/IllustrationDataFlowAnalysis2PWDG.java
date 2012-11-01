@@ -8,6 +8,9 @@ import java.io.IOException;
 import javax.wsdl.WSDLException;
 import javax.xml.bind.JAXBException;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
+
 import org.apache.log4j.Logger;
 import org.bpel4chor.splitprocess.RuntimeData;
 import org.bpel4chor.splitprocess.dataflowanalysis.AnalysisResultParser;
@@ -24,7 +27,6 @@ import org.bpel4chor.splitprocess.pwdg.model.WDG;
 import org.bpel4chor.splitprocess.pwdg.util.PWDGFactory;
 import org.bpel4chor.splitprocess.pwdg.util.WDGFactory;
 import org.bpel4chor.utils.BPEL4ChorReader;
-import org.bpel4chor.utils.MyBPELUtils;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELPlugin;
 import org.eclipse.bpel.model.Process;
@@ -116,7 +118,7 @@ public class IllustrationDataFlowAnalysis2PWDG {
 		// load wsdl
 		String wsdlURI = testFileDir.getAbsolutePath()
 				+ "\\OrderInfo4DDTestCase3\\bpelContent\\OrderingProcess.wsdl";
-		definition = BPEL4ChorReader.readWSDL(wsdlURI);
+		definition = MyWSDLUtil.readWSDL(wsdlURI);
 
 		// load partition specification
 		String partitionURI = testFileDir.getAbsolutePath()

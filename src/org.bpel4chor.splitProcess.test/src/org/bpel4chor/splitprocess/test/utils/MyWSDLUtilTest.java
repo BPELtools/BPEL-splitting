@@ -12,7 +12,6 @@ import javax.xml.namespace.QName;
 import junit.framework.Assert;
 
 import org.bpel4chor.utils.BPEL4ChorReader;
-import org.bpel4chor.utils.MyWSDLUtil;
 import org.eclipse.bpel.model.BPELPlugin;
 import org.eclipse.bpel.model.Process;
 import org.eclipse.bpel.model.messageproperties.PropertyAlias;
@@ -33,6 +32,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
 
 public class MyWSDLUtilTest {
 
@@ -60,7 +61,7 @@ public class MyWSDLUtilTest {
 		Resource resource = resourceSet.getResource(uri, true);
 		process = (Process) resource.getContents().get(0);
 
-		defn = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		defn = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\OrderInfo\\bpelContent\\OrderingProcess.wsdl");
 	}
 
@@ -104,7 +105,7 @@ public class MyWSDLUtilTest {
 
 	@Test
 	public void testFindPropertyAlias() throws WSDLException, IOException {
-		Definition definition = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		Definition definition = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\ProcessBla\\bpelContent\\ProcessBla.wsdl");
 		QName propertyName = new QName("correlProperty");
 		QName messageType = new QName("ProcessBlaRequestMessage");

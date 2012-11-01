@@ -10,12 +10,13 @@ import org.bpel4chor.splitprocess.exceptions.PartitionSpecificationException;
 import org.bpel4chor.splitprocess.partition.model.Participant;
 import org.bpel4chor.splitprocess.partition.model.PartitionSpecification;
 import org.bpel4chor.splitprocess.utils.ActivityUtil;
-import org.bpel4chor.utils.ActivityIterator;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Process;
 import org.eclipse.bpel.model.Receive;
 import org.eclipse.bpel.model.Reply;
 import org.eclipse.wst.wsdl.Operation;
+
+import de.uni_stuttgart.iaas.bpel.model.utilities.ActivityIterator;
 
 /**
  * PartitionVerificator verifies whether the partition specification violates

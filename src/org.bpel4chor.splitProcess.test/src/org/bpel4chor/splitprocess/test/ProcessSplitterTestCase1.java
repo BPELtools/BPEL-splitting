@@ -38,6 +38,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
 import de.uni_stuttgart.iaas.bpel_d.algorithm.analysis.AnalysisResult;
 
 /**
@@ -85,7 +86,7 @@ public class ProcessSplitterTestCase1 {
 		process = loadBPEL(bpelURI);
 
 		// load wsdl
-		definition = BPEL4ChorReader.readWSDL(testFileDir.getAbsolutePath()
+		definition = MyWSDLUtil.readWSDL(testFileDir.getAbsolutePath()
 				+ "\\DeliverProcess\\bpelContent\\DeliverProcess.wsdl");
 
 	}
