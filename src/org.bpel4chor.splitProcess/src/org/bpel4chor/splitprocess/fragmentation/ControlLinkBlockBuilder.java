@@ -8,8 +8,8 @@ import org.apache.log4j.Logger;
 import org.bpel4chor.model.grounding.impl.Grounding;
 import org.bpel4chor.model.topology.impl.Topology;
 import org.bpel4chor.splitprocess.utils.NameGenerator;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
 import org.bpel4chor.utils.BPEL4ChorFactory;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
 import org.bpel4chor.utils.BPEL4ChorUtil;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELFactory;
@@ -156,7 +156,7 @@ public class ControlLinkBlockBuilder {
 		// 1. create control link message with the given
 		// QName
 		QName ctrlMsgQName = new QName(targetDefn.getTargetNamespace(),
-				SplitProcessConstants.CONTROL_LINK_MESSAGE_NAME);
+				BPEL4ChorModelConstants.CONTROL_LINK_MESSAGE_NAME);
 		ctrlLinkMessage = MyWSDLUtil.resolveMessage(targetDefn, ctrlMsgQName);
 		if (ctrlLinkMessage == null) {
 			ctrlLinkMessage = FragmentFactory.createControlLinkMessage(targetDefn
@@ -167,12 +167,12 @@ public class ControlLinkBlockBuilder {
 			// part "correlation" in the control link message
 
 			Property correlProperty = MyWSDLUtil.findProperty(targetDefn,
-					SplitProcessConstants.CORRELATION_PROPERTY_NAME);
+					BPEL4ChorModelConstants.CORRELATION_PROPERTY_NAME);
 
 			PropertyAlias propertyAlias = MessagepropertiesFactory.eINSTANCE.createPropertyAlias();
 			propertyAlias.setPropertyName(correlProperty);
 			propertyAlias.setMessageType(ctrlLinkMessage);
-			propertyAlias.setPart(SplitProcessConstants.CORRELATION_PART_NAME);
+			propertyAlias.setPart(BPEL4ChorModelConstants.CORRELATION_PART_NAME);
 			targetDefn.addExtensibilityElement(propertyAlias);
 		}
 

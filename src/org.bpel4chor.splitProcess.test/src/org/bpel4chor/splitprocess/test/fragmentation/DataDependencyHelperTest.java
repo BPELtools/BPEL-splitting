@@ -36,9 +36,9 @@ import org.bpel4chor.splitprocess.pwdg.model.PWDGNode;
 import org.bpel4chor.splitprocess.pwdg.model.WDG;
 import org.bpel4chor.splitprocess.pwdg.util.PWDGFactory;
 import org.bpel4chor.splitprocess.pwdg.util.WDGFactory;
-import org.bpel4chor.splitprocess.utils.RandomIdGenerator;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
 import org.bpel4chor.utils.BPEL4ChorReader;
+import org.bpel4chor.utils.RandomIdGenerator;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELFactory;
 import org.eclipse.bpel.model.BPELPlugin;
@@ -374,11 +374,11 @@ public class DataDependencyHelperTest {
 
 		// property qname
 		QName propertyQName = new QName(defn.getTargetNamespace(),
-				SplitProcessConstants.CORRELATION_PROPERTY_NAME);
+				BPEL4ChorModelConstants.CORRELATION_PROPERTY_NAME);
 
 		// search the propertyAlias
 		PropertyAlias alias = MyWSDLUtil.findPropertyAlias(defn, propertyQName, msgQName,
-				SplitProcessConstants.CORRELATION_PART_NAME);
+				BPEL4ChorModelConstants.CORRELATION_PART_NAME);
 
 		// it should be not null
 		assertNotNull(alias);
@@ -440,10 +440,10 @@ public class DataDependencyHelperTest {
 		// assert the propertyAlias that points the correlation property to this
 		// message exists
 		QName propertyQName = new QName(dfn.getTargetNamespace(),
-				SplitProcessConstants.CORRELATION_PROPERTY_NAME);
+				BPEL4ChorModelConstants.CORRELATION_PROPERTY_NAME);
 
 		PropertyAlias alias = MyWSDLUtil.findPropertyAlias(dfn, propertyQName, msgQname,
-				SplitProcessConstants.CORRELATION_PART_NAME);
+				BPEL4ChorModelConstants.CORRELATION_PART_NAME);
 		
 		assertNotNull(alias);
 	}

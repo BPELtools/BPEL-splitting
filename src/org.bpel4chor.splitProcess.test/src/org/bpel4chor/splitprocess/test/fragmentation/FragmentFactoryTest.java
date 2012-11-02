@@ -14,7 +14,7 @@ import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
 import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
 
 import org.bpel4chor.splitprocess.fragmentation.FragmentFactory;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
 import org.bpel4chor.utils.BPEL4ChorReader;
 import org.bpel4chor.utils.BPEL4ChorWriter;
 import org.eclipse.bpel.model.BPELFactory;
@@ -102,7 +102,7 @@ public class FragmentFactoryTest {
 				.getTargetNamespace());
 		assertNotNull(ctrlLinkMessage);
 		assertEquals(new QName(process.getTargetNamespace(),
-				SplitProcessConstants.CONTROL_LINK_MESSAGE_NAME), ctrlLinkMessage.getQName());
+				BPEL4ChorModelConstants.CONTROL_LINK_MESSAGE_NAME), ctrlLinkMessage.getQName());
 		assertEquals(true, ctrlLinkMessage.getParts().size() == 2);
 
 		// one part should be status and of type boolean

@@ -12,8 +12,8 @@ import org.bpel4chor.model.topology.impl.Topology;
 import org.bpel4chor.splitprocess.exceptions.RuntimeDataException;
 import org.bpel4chor.splitprocess.partition.model.Participant;
 import org.bpel4chor.splitprocess.partition.model.PartitionSpecification;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
 import org.bpel4chor.utils.BPEL4ChorFactory;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Process;
 import org.eclipse.wst.wsdl.Definition;
@@ -102,7 +102,7 @@ public class RuntimeData {
 		this.nonSplitProcessDefn = nonSplitProcessDefn;
 		this.topology = BPEL4ChorFactory.createTopology(nonSplitProcess.getName() + "Topology");
 		this.grounding = BPEL4ChorFactory.createGrounding(this.topology);
-		this.outputDir = SplitProcessConstants.DEFAULT_SPLITTING_OUTPUT_DIR + File.separator
+		this.outputDir = BPEL4ChorModelConstants.DEFAULT_SPLITTING_OUTPUT_DIR + File.separator
 				+ Calendar.getInstance().getTimeInMillis();
 	}
 

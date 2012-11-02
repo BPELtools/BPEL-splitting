@@ -33,7 +33,7 @@ import org.bpel4chor.splitprocess.pwdg.model.PWDGNode;
 import org.bpel4chor.splitprocess.pwdg.model.WDG;
 import org.bpel4chor.splitprocess.pwdg.util.PWDGFactory;
 import org.bpel4chor.splitprocess.pwdg.util.WDGFactory;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
 import org.bpel4chor.utils.BPEL4ChorReader;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELFactory;
@@ -145,7 +145,7 @@ public class DataDependencyFragmenterTest {
 
 		// create dataDependencyFragmenter
 		RuntimeData data = new RuntimeData(process, partitionSpec1, definition,
-				SplitProcessConstants.DEFAULT_SPLITTING_OUTPUT_DIR);
+				BPEL4ChorModelConstants.DEFAULT_SPLITTING_OUTPUT_DIR);
 		MyDataDependencyFragmenter fragmenter = new MyDataDependencyFragmenter(data);
 
 		// init node2NameMap
@@ -175,7 +175,7 @@ public class DataDependencyFragmenterTest {
 
 		// create dataDependencyFragmenter
 		RuntimeData data = new RuntimeData(process, partitionSpec1, definition,
-				SplitProcessConstants.DEFAULT_SPLITTING_OUTPUT_DIR);
+				BPEL4ChorModelConstants.DEFAULT_SPLITTING_OUTPUT_DIR);
 		MyDataDependencyFragmenter fragmenter = new MyDataDependencyFragmenter(data);
 
 		// init querySet2nameMap

@@ -27,11 +27,11 @@ import org.bpel4chor.splitprocess.pwdg.util.PWDGFactory;
 import org.bpel4chor.splitprocess.pwdg.util.WDGFactory;
 import org.bpel4chor.splitprocess.utils.ActivityFinder;
 import org.bpel4chor.splitprocess.utils.NameGenerator;
-import org.bpel4chor.splitprocess.utils.RandomIdGenerator;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
 import org.bpel4chor.splitprocess.utils.VariableResolver;
 import org.bpel4chor.utils.BPEL4ChorFactory;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
 import org.bpel4chor.utils.BPEL4ChorUtil;
+import org.bpel4chor.utils.RandomIdGenerator;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELFactory;
@@ -2002,7 +2002,7 @@ public class DataDependencyFragmenter {
 		// add correlation set
 		Correlation correlation = BPELFactory.eINSTANCE.createCorrelation();
 		CorrelationSet correlSet = MyBPELUtils.resolveCorrelationSet(readerProcess,
-				SplitProcessConstants.CORRELATION_SET_NAME);
+				BPEL4ChorModelConstants.CORRELATION_SET_NAME);
 		correlation.setSet(correlSet);
 		correlation.setInitiate("join");
 

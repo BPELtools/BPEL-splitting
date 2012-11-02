@@ -4,7 +4,7 @@ import javax.xml.namespace.QName;
 
 import org.apache.log4j.Logger;
 import org.bpel4chor.splitprocess.utils.NameGenerator;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Assign;
 import org.eclipse.bpel.model.BPELFactory;
@@ -68,7 +68,7 @@ public class FragmentFactory {
 
 		// we always use the same name for the message that conveys control
 		// information.
-		QName ctrlMsgQName = new QName(namespace, SplitProcessConstants.CONTROL_LINK_MESSAGE_NAME);
+		QName ctrlMsgQName = new QName(namespace, BPEL4ChorModelConstants.CONTROL_LINK_MESSAGE_NAME);
 
 		ctrlLinkMessage = WSDLFactory.eINSTANCE.createMessage();
 		ctrlLinkMessage.setQName(ctrlMsgQName);
@@ -81,7 +81,7 @@ public class FragmentFactory {
 
 		// part for correlation
 		Part correlationPart = WSDLFactory.eINSTANCE.createPart();
-		correlationPart.setName(SplitProcessConstants.CORRELATION_PART_NAME);
+		correlationPart.setName(BPEL4ChorModelConstants.CORRELATION_PART_NAME);
 		correlationPart.setTypeName(new QName(XSDConstants.SCHEMA_FOR_SCHEMA_URI_2001, "string",
 				"xsd"));
 		ctrlLinkMessage.addPart(correlationPart);
@@ -138,7 +138,7 @@ public class FragmentFactory {
 
 		// part for correlation
 		Part correlationPart = WSDLFactory.eINSTANCE.createPart();
-		correlationPart.setName(SplitProcessConstants.CORRELATION_PART_NAME);
+		correlationPart.setName(BPEL4ChorModelConstants.CORRELATION_PART_NAME);
 		correlationPart.setTypeName(new QName(XSDConstants.SCHEMA_FOR_SCHEMA_URI_2001, "string",
 				"xsd"));
 
@@ -173,14 +173,14 @@ public class FragmentFactory {
 		Definition defn = null;
 		defn = WSDLFactory.eINSTANCE.createDefinition();
 		defn.setTargetNamespace(nonSplitProcessDefn.getTargetNamespace());
-		defn.addNamespace(SplitProcessConstants.DEFAULT_PREFIX,
+		defn.addNamespace(BPEL4ChorModelConstants.DEFAULT_PREFIX,
 				nonSplitProcessDefn.getTargetNamespace());
-		defn.addNamespace(SplitProcessConstants.PREFIX_VPROP, SplitProcessConstants.NAMESPACE_VPROP);
-		defn.addNamespace(SplitProcessConstants.PREFIX_WSDL, SplitProcessConstants.NAMESPACE_WSDL);
-		defn.addNamespace(SplitProcessConstants.PREFIX_SOAP, SplitProcessConstants.NAMESPACE_SOAP);
-		defn.addNamespace(SplitProcessConstants.PREFIX_SCHEMA,
-				SplitProcessConstants.NAMESPACE_SCHEMA);
-		defn.addNamespace(SplitProcessConstants.PREFIX_PLNK, SplitProcessConstants.NAMESPACE_PLNK);
+		defn.addNamespace(BPEL4ChorModelConstants.PREFIX_VPROP, BPEL4ChorModelConstants.NAMESPACE_VPROP);
+		defn.addNamespace(BPEL4ChorModelConstants.PREFIX_WSDL, BPEL4ChorModelConstants.NAMESPACE_WSDL);
+		defn.addNamespace(BPEL4ChorModelConstants.PREFIX_SOAP, BPEL4ChorModelConstants.NAMESPACE_SOAP);
+		defn.addNamespace(BPEL4ChorModelConstants.PREFIX_SCHEMA,
+				BPEL4ChorModelConstants.NAMESPACE_SCHEMA);
+		defn.addNamespace(BPEL4ChorModelConstants.PREFIX_PLNK, BPEL4ChorModelConstants.NAMESPACE_PLNK);
 
 		// set the qName of process
 		QName qName = new QName(defn.getTargetNamespace(), fragProcessName);
@@ -188,7 +188,7 @@ public class FragmentFactory {
 
 		// add property, name="correlProperty" type=string
 		Property correlProperty = MyWSDLUtil.findProperty(nonSplitProcessDefn,
-				SplitProcessConstants.CORRELATION_PROPERTY_NAME);
+				BPEL4ChorModelConstants.CORRELATION_PROPERTY_NAME);
 		if (correlProperty != null) {
 			Property newCorrelProperty = FragmentDuplicator.copyProperty(correlProperty);
 			defn.addExtensibilityElement(newCorrelProperty);
@@ -459,14 +459,14 @@ public class FragmentFactory {
 
 		// from global correlation variable
 		Variable globalVar4Correl = MyBPELUtils.resolveVariable(
-				SplitProcessConstants.VARIABLE_FOR_CORRELATION_NAME, process);
+				BPEL4ChorModelConstants.VARIABLE_FOR_CORRELATION_NAME, process);
 		if (globalVar4Correl == null)
 			throw new NullPointerException();
 		from.setVariable(globalVar4Correl);
 
 		// to message correlation part
 		Message msg = var.getMessageType();
-		Part correlPart = (Part) msg.getPart(SplitProcessConstants.CORRELATION_PART_NAME);
+		Part correlPart = (Part) msg.getPart(BPEL4ChorModelConstants.CORRELATION_PART_NAME);
 		to.setVariable(var);
 		to.setPart(correlPart);
 
@@ -595,7 +595,7 @@ public class FragmentFactory {
 
 			Correlation correlation = BPELFactory.eINSTANCE.createCorrelation();
 			CorrelationSet correlSet = MyBPELUtils.resolveCorrelationSet(fragProcess,
-					SplitProcessConstants.CORRELATION_SET_NAME);
+					BPEL4ChorModelConstants.CORRELATION_SET_NAME);
 			correlation.setSet(correlSet);
 			correlation.setInitiate("join");
 
@@ -732,7 +732,7 @@ public class FragmentFactory {
 		copy.setFrom(from);
 
 		Variable globalVar = MyBPELUtils.resolveVariable(
-				SplitProcessConstants.VARIABLE_FOR_CORRELATION_NAME, process);
+				BPEL4ChorModelConstants.VARIABLE_FOR_CORRELATION_NAME, process);
 		to.setVariable(globalVar);
 		copy.setTo(to);
 
@@ -767,7 +767,7 @@ public class FragmentFactory {
 	 */
 	public static Part createMessagePart4Correlation() {
 		Part correlationPart = WSDLFactory.eINSTANCE.createPart();
-		correlationPart.setName(SplitProcessConstants.CORRELATION_PART_NAME);
+		correlationPart.setName(BPEL4ChorModelConstants.CORRELATION_PART_NAME);
 		correlationPart.setTypeName(new QName(XSDConstants.SCHEMA_FOR_SCHEMA_URI_2001, "string",
 				"xsd"));
 		return correlationPart;

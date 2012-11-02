@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 import org.apache.log4j.Logger;
-import org.bpel4chor.splitprocess.utils.RandomIdGenerator;
+import org.bpel4chor.utils.RandomIdGenerator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

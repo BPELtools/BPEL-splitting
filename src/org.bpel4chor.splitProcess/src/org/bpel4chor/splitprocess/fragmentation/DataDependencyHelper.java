@@ -11,8 +11,8 @@ import org.bpel4chor.splitprocess.partition.model.Participant;
 import org.bpel4chor.splitprocess.partition.model.PartitionSpecification;
 import org.bpel4chor.splitprocess.pwdg.model.PWDG;
 import org.bpel4chor.splitprocess.pwdg.model.PWDGNode;
-import org.bpel4chor.splitprocess.utils.RandomIdGenerator;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
+import org.bpel4chor.utils.RandomIdGenerator;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELFactory;
 import org.eclipse.bpel.model.PartnerLink;
@@ -328,12 +328,12 @@ public class DataDependencyHelper {
 		// propertyAlias that points to the correlation property to the
 		// correlation part in the message
 		Property correlProperty = MyWSDLUtil.findProperty(dfn,
-				SplitProcessConstants.CORRELATION_PROPERTY_NAME);
+				BPEL4ChorModelConstants.CORRELATION_PROPERTY_NAME);
 
 		PropertyAlias propertyAlias = MessagepropertiesFactory.eINSTANCE.createPropertyAlias();
 		propertyAlias.setPropertyName(correlProperty);
 		propertyAlias.setMessageType(msg);
-		propertyAlias.setPart(SplitProcessConstants.CORRELATION_PART_NAME);
+		propertyAlias.setPart(BPEL4ChorModelConstants.CORRELATION_PART_NAME);
 		dfn.addExtensibilityElement(propertyAlias);
 
 	}
@@ -401,12 +401,12 @@ public class DataDependencyHelper {
 		// propertyAlias that points to the correlation property to the
 		// correlation part in the message
 		Property correlProperty = MyWSDLUtil.findProperty(dfn,
-				SplitProcessConstants.CORRELATION_PROPERTY_NAME);
+				BPEL4ChorModelConstants.CORRELATION_PROPERTY_NAME);
 
 		PropertyAlias propertyAlias = MessagepropertiesFactory.eINSTANCE.createPropertyAlias();
 		propertyAlias.setPropertyName(correlProperty);
 		propertyAlias.setMessageType(msg);
-		propertyAlias.setPart(SplitProcessConstants.CORRELATION_PART_NAME);
+		propertyAlias.setPart(BPEL4ChorModelConstants.CORRELATION_PART_NAME);
 
 		dfn.addExtensibilityElement(propertyAlias);
 	}

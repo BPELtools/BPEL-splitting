@@ -36,8 +36,8 @@ import org.bpel4chor.splitprocess.pwdg.model.PWDGNode;
 import org.bpel4chor.splitprocess.pwdg.model.WDG;
 import org.bpel4chor.splitprocess.pwdg.util.PWDGFactory;
 import org.bpel4chor.splitprocess.pwdg.util.WDGFactory;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
 import org.bpel4chor.splitprocess.utils.VariableResolver;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
 import org.bpel4chor.utils.BPEL4ChorReader;
 import org.bpel4chor.utils.BPEL4ChorUtil;
 import org.eclipse.bpel.model.Activity;
@@ -347,10 +347,10 @@ public class DataDependencyFragmenterTestCase1 {
 			}
 			if (from.getVariable() != null) {
 				Variable fromVar = from.getVariable();
-				if (fromVar.getName().equals(SplitProcessConstants.VARIABLE_FOR_CORRELATION_NAME)) {
+				if (fromVar.getName().equals(BPEL4ChorModelConstants.VARIABLE_FOR_CORRELATION_NAME)) {
 					Assert.assertTrue(to.getVariable() != null
 							&& to.getPart().getName()
-									.equals(SplitProcessConstants.CORRELATION_PART_NAME));
+									.equals(BPEL4ChorModelConstants.CORRELATION_PART_NAME));
 				} else {
 					Assert.assertTrue(to.getPart().getName().equals("data"));
 				}
@@ -376,10 +376,10 @@ public class DataDependencyFragmenterTestCase1 {
 			if (from.getVariable() != null) {
 				Variable fromVar = from.getVariable();
 				Assert.assertTrue(fromVar.getName().equals(
-						SplitProcessConstants.VARIABLE_FOR_CORRELATION_NAME));
+						BPEL4ChorModelConstants.VARIABLE_FOR_CORRELATION_NAME));
 				Assert.assertTrue(to.getVariable() != null
 						&& to.getPart().getName()
-								.equals(SplitProcessConstants.CORRELATION_PART_NAME));
+								.equals(BPEL4ChorModelConstants.CORRELATION_PART_NAME));
 
 			}
 		}

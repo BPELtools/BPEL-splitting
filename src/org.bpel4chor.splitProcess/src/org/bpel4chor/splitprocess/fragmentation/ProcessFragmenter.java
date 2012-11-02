@@ -17,11 +17,11 @@ import org.bpel4chor.splitprocess.partition.model.Participant;
 import org.bpel4chor.splitprocess.partition.model.PartitionSpecification;
 import org.bpel4chor.splitprocess.utils.ActivityFinder;
 import org.bpel4chor.splitprocess.utils.ActivityUtil;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
 import org.bpel4chor.splitprocess.utils.VariableResolver;
 import org.bpel4chor.splitprocess.utils.VariableUtil;
 import org.bpel4chor.utils.BPEL4ChorConstants;
 import org.bpel4chor.utils.BPEL4ChorFactory;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.BPELExtensibleElement;
 import org.eclipse.bpel.model.BPELFactory;
@@ -232,11 +232,11 @@ public class ProcessFragmenter {
 
 		// get original property
 		Property origProperty = MyWSDLUtil.findProperty(nonSplitProcessDefn,
-				SplitProcessConstants.CORRELATION_PROPERTY_NAME);
+				BPEL4ChorModelConstants.CORRELATION_PROPERTY_NAME);
 
 		// get the corresponding property in fragment process
 		Property fragProperty = MyWSDLUtil.findProperty(fragDefn,
-				SplitProcessConstants.CORRELATION_PROPERTY_NAME);
+				BPEL4ChorModelConstants.CORRELATION_PROPERTY_NAME);
 
 		if (origProperty == null || fragProperty == null)
 			throw new NullPointerException();
@@ -287,9 +287,9 @@ public class ProcessFragmenter {
 		Variable globalCorrelVar = BPELFactory.eINSTANCE.createVariable();
 		XSDTypeDefinition varType = XSDFactory.eINSTANCE.createXSDSimpleTypeDefinition();
 		varType.setTargetNamespace(XSDConstants.SCHEMA_FOR_SCHEMA_URI_2001);
-		varType.setName(SplitProcessConstants.VARIABLE_FOR_CORRELATION_TYPE);
+		varType.setName(BPEL4ChorModelConstants.VARIABLE_FOR_CORRELATION_TYPE);
 		globalCorrelVar.setType(varType);
-		globalCorrelVar.setName(SplitProcessConstants.VARIABLE_FOR_CORRELATION_NAME);
+		globalCorrelVar.setName(BPEL4ChorModelConstants.VARIABLE_FOR_CORRELATION_NAME);
 
 		// create variables and add the global variables
 		Variables fragVars = BPELFactory.eINSTANCE.createVariables();

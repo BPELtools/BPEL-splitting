@@ -16,7 +16,7 @@ import org.bpel4chor.splitprocess.fragmentation.DataDependencyFragmenter;
 import org.bpel4chor.splitprocess.fragmentation.ProcessFragmenter;
 import org.bpel4chor.splitprocess.partition.model.PartitionSpecification;
 import org.bpel4chor.splitprocess.partition.representation.PartitionSpecReader;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
 import org.bpel4chor.utils.BPEL4ChorReader;
 import org.bpel4chor.utils.BPEL4ChorWriter;
 import org.eclipse.bpel.model.Process;
@@ -34,7 +34,7 @@ import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
  * <p>
  * The output directory can be customized, if it is not be given, the default
  * value will be used. Default output directory is
- * {@link SplitProcessConstants#DEFAULT_SPLITTING_OUTPUT_DIR}
+ * {@link BPEL4ChorModelConstants#DEFAULT_SPLITTING_OUTPUT_DIR}
  * 
  * @since Feb 9, 2012
  * @author Daojun Cui
@@ -198,7 +198,7 @@ public class ProcessSplitter {
 				+ Calendar.getInstance().getTimeInMillis() + ".zip";
 		BPEL4ChorWriter.writeBPEL4Chor(data.getParticipant2FragProcMap(),
 				data.getParticipant2WSDLMap(), data.getTopology(), data.getGrounding(),
-				data.getOutputDir(), SplitProcessConstants.DEFAULT_SPLITTING_OUTPUT_DIR,
+				data.getOutputDir(), BPEL4ChorModelConstants.DEFAULT_SPLITTING_OUTPUT_DIR,
 				outputZipFileName);
 
 		return outputZipFileName;

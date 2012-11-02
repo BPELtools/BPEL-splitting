@@ -23,7 +23,7 @@ import org.bpel4chor.splitprocess.fragmentation.ControlLinkBlockBuilder;
 import org.bpel4chor.splitprocess.fragmentation.ProcessFragmenter;
 import org.bpel4chor.splitprocess.partition.model.PartitionSpecification;
 import org.bpel4chor.splitprocess.partition.representation.PartitionSpecReader;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
 import org.bpel4chor.utils.BPEL4ChorReader;
 import org.bpel4chor.utils.BPEL4ChorUtil;
 import org.bpel4chor.utils.BPEL4ChorWriter;
@@ -133,7 +133,7 @@ public class ControlLinkBlockBuilderTest {
 
 		// fragment process
 		RuntimeData data = new RuntimeData(process, partitionSpec, definition,
-				SplitProcessConstants.DEFAULT_SPLITTING_OUTPUT_DIR);
+				BPEL4ChorModelConstants.DEFAULT_SPLITTING_OUTPUT_DIR);
 		ProcessFragmenter procFragmenter = new ProcessFragmenter(data);
 		procFragmenter.fragmentizeProcess();
 
@@ -187,7 +187,7 @@ public class ControlLinkBlockBuilderTest {
 	private void assertPropertyAliasCreatedInParticipantY() {
 
 		QName propertyQName = new QName(targetDefn.getTargetNamespace(),
-				SplitProcessConstants.CORRELATION_PROPERTY_NAME);
+				BPEL4ChorModelConstants.CORRELATION_PROPERTY_NAME);
 
 		PropertyAlias[] aliases = MyWSDLUtil.findPropertyAlias(targetDefn, propertyQName);
 
@@ -202,7 +202,7 @@ public class ControlLinkBlockBuilderTest {
 
 		for (PropertyAlias alias : aliases) {
 			if (((Message) alias.getMessageType()).getQName().getLocalPart()
-					.equals(SplitProcessConstants.CONTROL_LINK_MESSAGE_NAME))
+					.equals(BPEL4ChorModelConstants.CONTROL_LINK_MESSAGE_NAME))
 				alias4ControlLinkMessage = true;
 		}
 		assertTrue(alias4ControlLinkMessage);
@@ -318,7 +318,7 @@ public class ControlLinkBlockBuilderTest {
 			From from = cp.getFrom();
 			if (from.getVariable() != null
 					&& from.getVariable().getName()
-							.equals(SplitProcessConstants.VARIABLE_FOR_CORRELATION_NAME)) {
+							.equals(BPEL4ChorModelConstants.VARIABLE_FOR_CORRELATION_NAME)) {
 				cpCorrel = cp;
 				break;
 			}
@@ -327,7 +327,7 @@ public class ControlLinkBlockBuilderTest {
 		To to = cpCorrel.getTo();
 		Part correlpart = to.getPart();
 		Assert.assertEquals(correlpart, ((Message) to.getVariable().getMessageType())
-				.getPart(SplitProcessConstants.CORRELATION_PART_NAME));
+				.getPart(BPEL4ChorModelConstants.CORRELATION_PART_NAME));
 
 	}
 
@@ -368,20 +368,20 @@ public class ControlLinkBlockBuilderTest {
 		Correlations correlations = ((Receive) receive).getCorrelations();
 		assertNotNull(correlations);
 		CorrelationSet correlSet = correlations.getChildren().get(0).getSet();
-		assertTrue(correlSet.getName().equals(SplitProcessConstants.CORRELATION_SET_NAME));
+		assertTrue(correlSet.getName().equals(BPEL4ChorModelConstants.CORRELATION_SET_NAME));
 
 		Property actualProperty = correlSet.getProperties().get(0);
 		Property expectProperty = MyWSDLUtil.findProperty(targetDefn,
-				SplitProcessConstants.CORRELATION_PROPERTY_NAME);
+				BPEL4ChorModelConstants.CORRELATION_PROPERTY_NAME);
 		assertEqualProperty(expectProperty, actualProperty);
 
 		// assert the propertyAlias for the received message is created in the
 		QName propertyQName = new QName(targetDefn.getTargetNamespace(),
-				SplitProcessConstants.CORRELATION_PROPERTY_NAME);
+				BPEL4ChorModelConstants.CORRELATION_PROPERTY_NAME);
 		QName messageQName = new QName(targetDefn.getTargetNamespace(), receiveVar.getMessageType()
 				.getQName().getLocalPart());
 		PropertyAlias expectedAlias = MyWSDLUtil.findPropertyAlias(targetDefn, propertyQName,
-				messageQName, SplitProcessConstants.CORRELATION_PART_NAME);
+				messageQName, BPEL4ChorModelConstants.CORRELATION_PART_NAME);
 		assertNotNull(expectedAlias);
 
 		// get topology
@@ -419,7 +419,7 @@ public class ControlLinkBlockBuilderTest {
 		Copy copy = assign.getCopy().get(0);
 		assertTrue(copy.getFrom().getProperty() != null);
 		assertTrue(copy.getTo().getVariable().getName()
-				.equals(SplitProcessConstants.VARIABLE_FOR_CORRELATION_NAME));
+				.equals(BPEL4ChorModelConstants.VARIABLE_FOR_CORRELATION_NAME));
 	}
 
 	private void assertEqualProperty(Property expectProperty, Property actualProperty) {

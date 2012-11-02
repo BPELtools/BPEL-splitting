@@ -7,11 +7,9 @@ import java.util.Calendar;
 import javax.wsdl.WSDLException;
 
 import org.bpel4chor.splitprocess.cli.SplitProcessMainCmd;
-import org.bpel4chor.utils.BPEL4ChorReader;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.uni_stuttgart.iaas.bpel.model.utilities.MyBPELUtils;
 import de.uni_stuttgart.iaas.bpel.model.utilities.MyWSDLUtil;
 
 public class SplitProcessMainCmdTest {

@@ -28,7 +28,7 @@ import org.bpel4chor.splitprocess.partition.model.PartitionSpecification;
 import org.bpel4chor.splitprocess.partition.representation.PartitionSpecReader;
 import org.bpel4chor.splitprocess.test.TestUtil;
 import org.bpel4chor.splitprocess.utils.ActivityFinder;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
 import org.bpel4chor.utils.BPEL4ChorReader;
 import org.eclipse.bpel.model.Activity;
 import org.eclipse.bpel.model.Assign;
@@ -822,8 +822,8 @@ public class ProcessFragmenterTest extends TestUtil {
 
 	private void assertPropertyAndAliasConfiguredCorrect(Definition fragDefn) {
 		// property
-		Assert.assertNotNull(MyWSDLUtil.findProperty(fragDefn, SplitProcessConstants.CORRELATION_PROPERTY_NAME));
-		QName propertyQName = new QName(fragDefn.getTargetNamespace(), SplitProcessConstants.CORRELATION_PROPERTY_NAME);
+		Assert.assertNotNull(MyWSDLUtil.findProperty(fragDefn, BPEL4ChorModelConstants.CORRELATION_PROPERTY_NAME));
+		QName propertyQName = new QName(fragDefn.getTargetNamespace(), BPEL4ChorModelConstants.CORRELATION_PROPERTY_NAME);
 		Assert.assertTrue(MyWSDLUtil.findPropertyAlias(fragDefn, propertyQName).length == 1);
 	}
 

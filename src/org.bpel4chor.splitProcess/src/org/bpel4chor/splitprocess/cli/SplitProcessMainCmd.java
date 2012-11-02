@@ -5,7 +5,7 @@ import java.io.PrintStream;
 
 import org.apache.log4j.Logger;
 import org.bpel4chor.splitprocess.ProcessSplitter;
-import org.bpel4chor.splitprocess.utils.SplitProcessConstants;
+import org.bpel4chor.utils.BPEL4ChorModelConstants;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
@@ -50,7 +50,7 @@ public class SplitProcessMainCmd {
 		try {
 			parser.parseArgument(args);
 			if (cmdInput.getOutputDir() == null || cmdInput.getOutputDir().isEmpty()) {
-				cmdInput.setOutputDir(SplitProcessConstants.DEFAULT_SPLITTING_OUTPUT_DIR);
+				cmdInput.setOutputDir(BPEL4ChorModelConstants.DEFAULT_SPLITTING_OUTPUT_DIR);
 				File outputDir = new File(cmdInput.getOutputDir());
 				if (outputDir.exists() == false) {
 					outputDir.mkdirs();
