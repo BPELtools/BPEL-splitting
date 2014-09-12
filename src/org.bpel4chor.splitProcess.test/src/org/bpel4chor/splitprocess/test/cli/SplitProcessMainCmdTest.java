@@ -33,7 +33,7 @@ public class SplitProcessMainCmdTest {
 	public void testRunArgs() {
 
 		String[] args = { "-bpel", bpelFilePath, "-partition", partitionFilePath, "-output",
-				"c:\\tmp\\bpel4chor\\OrderInfo" + Calendar.getInstance().getTimeInMillis() };
+				org.bpel4chor.utils.BPEL4ChorConstants.BPEL4CHOR_DEFAULT_WRITE_DIR + "\\OrderInfo" + Calendar.getInstance().getTimeInMillis() };
 
 		SplitProcessMainCmd cmd = new SplitProcessMainCmd();
 		cmd.run(args);
