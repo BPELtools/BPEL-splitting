@@ -21,11 +21,10 @@ for testing DataFlowAnalysis
 with partition specification: Partition.xml
 
 5. ProcessOrder
-Invoked process
+[replaced by service implementation - see org.bpel4chor.splitProcess.test.services.processOrder]
 
 6. ProcessPayment
-Invoked process
-with partition specification: Partition.xml
+[replaced by service implementation - see org.bpel4chor.splitProcess.test.services.processPayment]
 
 7. DeliverProcess
 Invoked process
