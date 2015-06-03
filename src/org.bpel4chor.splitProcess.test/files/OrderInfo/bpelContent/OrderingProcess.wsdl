@@ -25,17 +25,8 @@
 		</schema>
 	</types>
 
-	<message name="orderRequest">
-		<part name="acountNumber" type="xsd:string"/>
-		<part name="status" type="xsd:string"/>
-		<part name="orderTotalPrice" type="xsd:int"/>
-		<part name="numDeliveries" type="xsd:int"/>
-		<part name="correlation" type="xsd:string"/>
-	</message>
-	
 	<message name="orderResponse">
 		<part name="text" type="xsd:string" />
-		<part name="correlation" type="xsd:string" />
 	</message>
 	
 	<portType name="OrderingProcess">

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.4-b01.--><xs:schema elementFormDefault="qualified" version="1.0" targetNamespace="http://www.bpel4chor.org/splitProcess/test/services/ProcessPayment" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Delivered" type="xs:integer"/>
+  <xs:element name="PaymentInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="amt" type="xs:int"/>
+        <xs:element name="actNum" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

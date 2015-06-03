@@ -33,7 +33,6 @@
 		<bpel:variable name="response" messageType="tns:orderResponse"></bpel:variable>
 
 		<bpel:variable name="paymentInfo" messageType="tns:processPaymentRequest"></bpel:variable>
-		<bpel:variable name="delivered" type="xsd:int"></bpel:variable>
 
 		<bpel:variable name="processOrderPLRequest" messageType="tns:processOrderRequest"></bpel:variable>
 	</bpel:variables>
@@ -60,9 +59,6 @@
 			<bpel:sources>
 				<bpel:source linkName="ReceiveA2AssignB"></bpel:source>
 			</bpel:sources>
-            <bpel:correlations>
-                <bpel:correlation set="CorrelationSet" initiate="yes"></bpel:correlation>
-            </bpel:correlations>
         </bpel:receive>
 		<bpel:assign validate="no" name="B">
 			<bpel:targets>
@@ -81,7 +77,7 @@
 			</bpel:sources>
 
 			<bpel:copy>
-				<bpel:from part="acountNumber" variable="orderInfo">
+				<bpel:from part="accountNumber" variable="orderInfo">
 				</bpel:from>
 				<bpel:to part="actNum" variable="paymentInfo">
 				</bpel:to>
@@ -156,23 +152,14 @@
 			</bpel:sources>
 			<bpel:copy>
 				<bpel:from>
-                    <![CDATA["pricess calculated"]]>
+                    <![CDATA["price calculated"]]>
                 </bpel:from>
 				<bpel:to part="status" variable="orderInfo">
 				</bpel:to>
 			</bpel:copy>
-            <bpel:copy>
-                <bpel:from>
-                    <![CDATA[0]]>
-                </bpel:from>
-                <bpel:to variable="delivered"></bpel:to>
-            </bpel:copy>
         </bpel:assign>
 		<bpel:invoke name="F" partnerLink="processOrderPL"
 			operation="processOrder" portType="tns:ProcessOrder" inputVariable="processOrderPLRequest">
-            <bpel:correlations>
-                <bpel:correlation set="CorrelationSet" initiate="no"></bpel:correlation>
-            </bpel:correlations>
             <bpel:targets>
 				<bpel:target linkName="AssignE2InvokeF"></bpel:target>
 			</bpel:targets>
@@ -182,9 +169,6 @@
 			</bpel:sources>
 		</bpel:invoke>
 		<bpel:invoke name="G" partnerLink="processPaymentPL" operation="processPayment" portType="tns:ProcessPayment" inputVariable="paymentInfo">
-            <bpel:correlations>
-                <bpel:correlation set="CorrelationSet" initiate="no"></bpel:correlation>
-            </bpel:correlations>
             <bpel:targets>
 				<bpel:target linkName="InvokeF2G"></bpel:target>
 			</bpel:targets>
@@ -194,9 +178,6 @@
 			<bpel:targets>
 				<bpel:target linkName="InvokeF2ReplyH"></bpel:target>
 			</bpel:targets>
-            <bpel:correlations>
-                <bpel:correlation set="CorrelationSet" initiate="no"></bpel:correlation>
-            </bpel:correlations>
         </bpel:reply>
 	</bpel:flow>
 </bpel:process>
