@@ -51,7 +51,6 @@
 			<bpel:link name="AssignE2InvokeF"/>
 			<bpel:link name="InvokeF2G"/>
 			<bpel:link name="InvokeF2ReplyH"/>
-
 		</bpel:links>
 		<bpel:receive name="A" createInstance="yes"
 					  partnerLink="orderingPL" operation="order" portType="tns:OrderingProcess"
@@ -65,7 +64,6 @@
 				<bpel:target linkName="ReceiveA2AssignB"/>
 			</bpel:targets>
 			<bpel:sources>
-
 				<bpel:source linkName="AssignB2C">
 					<bpel:transitionCondition><![CDATA[$order.info/status="gold"]]></bpel:transitionCondition>
 				</bpel:source>
@@ -73,28 +71,18 @@
 					<bpel:transitionCondition><![CDATA[$order.info/status="silver"]]></bpel:transitionCondition>
 				</bpel:source>
 				<bpel:source linkName="AssignB2E"/>
-
 			</bpel:sources>
-
 			<bpel:copy>
-				<bpel:from part="accountNumber" variable="orderInfo">
-				</bpel:from>
-				<bpel:to part="actNum" variable="paymentInfo">
-				</bpel:to>
+				<bpel:from part="accountNumber" variable="orderInfo" />
+				<bpel:to part="actNum" variable="paymentInfo" />
 			</bpel:copy>
 			<bpel:copy>
-				<bpel:from>
-					<![CDATA[string("Dear customer,...")]]>
-				</bpel:from>
-				<bpel:to part="text" variable="response">
-				</bpel:to>
+				<bpel:from><![CDATA[string("Dear customer,...")]]></bpel:from>
+				<bpel:to part="text" variable="response" />
 			</bpel:copy>
 			<bpel:copy>
-				<bpel:from>
-					<![CDATA[$order.info/orderTotalPrice + 5*$order.info/numDeliveries]]>
-				</bpel:from>
-				<bpel:to part="amt" variable="paymentInfo">
-				</bpel:to>
+				<bpel:from><![CDATA[$order.info/orderTotalPrice + 5*$order.info/numDeliveries]]></bpel:from>
+				<bpel:to part="amt" variable="paymentInfo" />
 			</bpel:copy>
 		</bpel:assign>
 		<bpel:assign validate="no" name="C">
@@ -105,16 +93,11 @@
 				<bpel:source linkName="AssignC2E"/>
 			</bpel:sources>
 			<bpel:copy>
-				<bpel:from>
-					<![CDATA[concat($response.text, "10% discount")]]>
-				</bpel:from>
-				<bpel:to part="text" variable="response">
-				</bpel:to>
+				<bpel:from><![CDATA[concat($response.text, "10% discount")]]></bpel:from>
+				<bpel:to part="text" variable="response" />
 			</bpel:copy>
 			<bpel:copy>
-				<bpel:from>
-					<![CDATA[$paymentInfo.amt*0.9]]>
-				</bpel:from>
+				<bpel:from><![CDATA[$paymentInfo.amt*0.9]]></bpel:from>
 				<bpel:to part="amt" variable="paymentInfo">
 				</bpel:to>
 			</bpel:copy>

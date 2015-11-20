@@ -5,9 +5,6 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="OrderingProcess"
 	targetNamespace="http://www.iaas.uni-stuttgart.de">
 
-	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
-		SERVICE DEFINITION - A service groups a set of ports into a service unit. 
-		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<plnk:partnerLinkType name="OrderingProcessPT">
 		<plnk:role name="OrderProcessProvider" portType="tns:OrderingProcess" />
 	</plnk:partnerLinkType>
@@ -31,7 +28,8 @@
 						<element name="orderTotalPrice" type="double"/>
 					</sequence>
 				</complexType>
-			</element>		</schema>
+			</element>
+		</schema>
 	</types>
 
 	<message name="orderRequest">
