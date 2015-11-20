@@ -22,8 +22,21 @@
 	<types>
 		<schema xmlns="http://www.w3.org/2001/XMLSchema"
 			elementFormDefault="qualified" targetNamespace="http://www.iaas.uni-stuttgart.de">
-		</schema>
+			<element name="orderInfo">
+				<complexType>
+					<sequence>
+						<element name="accountNumber" type="string"/>
+						<element name="status" type="string"/>
+						<element name="numDeliveries" type="int"/>
+						<element name="orderTotalPrice" type="double"/>
+					</sequence>
+				</complexType>
+			</element>		</schema>
 	</types>
+
+	<message name="orderRequest">
+		<part name="info" element="tns:orderInfo" />
+	</message>
 
 	<message name="orderResponse">
 		<part name="text" type="xsd:string" />
@@ -31,7 +44,7 @@
 	
 	<portType name="OrderingProcess">
 		<operation name="order">
-			<input message="tns:orderRequest" name="order" />
+			<input message="tns:orderRequest" name="orderMessage" />
 			<output message="tns:orderResponse" name="response"/>
 		</operation>
 	</portType>

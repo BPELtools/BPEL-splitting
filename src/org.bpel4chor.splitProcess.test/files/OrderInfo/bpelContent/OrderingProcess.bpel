@@ -28,7 +28,7 @@
 						  partnerLinkType="tns:ProcessPaymentPT" partnerRole="ProcessPayment"/>
 	</bpel:partnerLinks>
 	<bpel:variables>
-		<bpel:variable name="orderInfo" messageType="tns:orderRequest"/>
+		<bpel:variable name="order" messageType="tns:orderMessage"/>
 
 		<bpel:variable name="response" messageType="tns:orderResponse"/>
 
@@ -55,7 +55,7 @@
 		</bpel:links>
 		<bpel:receive name="A" createInstance="yes"
 					  partnerLink="orderingPL" operation="order" portType="tns:OrderingProcess"
-					  variable="orderInfo">
+					  variable="order">
 			<bpel:sources>
 				<bpel:source linkName="ReceiveA2AssignB"/>
 			</bpel:sources>
@@ -67,10 +67,10 @@
 			<bpel:sources>
 
 				<bpel:source linkName="AssignB2C">
-					<bpel:transitionCondition><![CDATA[$orderInfo.status="gold"]]></bpel:transitionCondition>
+					<bpel:transitionCondition><![CDATA[$order.info/status="gold"]]></bpel:transitionCondition>
 				</bpel:source>
 				<bpel:source linkName="AssignB2D">
-					<bpel:transitionCondition><![CDATA[$orderInfo.status="silver"]]></bpel:transitionCondition>
+					<bpel:transitionCondition><![CDATA[$order.info/status="silver"]]></bpel:transitionCondition>
 				</bpel:source>
 				<bpel:source linkName="AssignB2E"/>
 
@@ -91,7 +91,7 @@
 			</bpel:copy>
 			<bpel:copy>
 				<bpel:from>
-					<![CDATA[$orderInfo.orderTotalPrice + 5*$orderInfo.numDeliveries]]>
+					<![CDATA[$order.info/orderTotalPrice + 5*$order.info/numDeliveries]]>
 				</bpel:from>
 				<bpel:to part="amt" variable="paymentInfo">
 				</bpel:to>
