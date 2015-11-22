@@ -35,9 +35,9 @@
 
 		<bpel:variable name="response" messageType="tns:orderResponse"/>
 
-		<bpel:variable name="paymentInfo" messageType="tns:processPayment"/>
+		<bpel:variable name="paymentInfo" messageType="pp:processPayment"/>
 
-		<bpel:variable name="processOrderPLRequest" messageType="tns:processOrder"/>
+		<bpel:variable name="processOrderPLRequest" messageType="po:processOrder"/>
 	</bpel:variables>
 	<bpel:flow name="Flow">
 		<bpel:links>
