@@ -12,10 +12,6 @@
 		<plnk:role name="OrderProcessCallback" portType="tns:OrderingProcessCallback" />
 	</plnk:partnerLinkType>
 
-	<vprop:property name="correlProperty" type="xsd:string" />
-	<vprop:propertyAlias propertyName="tns:correlProperty" messageType="tns:orderRequest" part="correlation" />
-	<vprop:propertyAlias propertyName="tns:correlProperty" messageType="tns:orderResponse" part="correlation" />
-
 	<types>
 		<schema xmlns="http://www.w3.org/2001/XMLSchema"
 			elementFormDefault="qualified" targetNamespace="http://www.iaas.uni-stuttgart.de">

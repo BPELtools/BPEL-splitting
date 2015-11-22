@@ -39,10 +39,6 @@
 
 		<bpel:variable name="processOrderPLRequest" messageType="tns:processOrder"/>
 	</bpel:variables>
-	<bpel:correlationSets>
-		<bpel:correlationSet name="CorrelationSet"
-							 properties="tns:correlProperty"/>
-	</bpel:correlationSets>
 	<bpel:flow name="Flow">
 		<bpel:links>
 			<bpel:link name="ReceiveA2AssignB"/>
