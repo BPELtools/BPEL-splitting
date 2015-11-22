@@ -5,7 +5,10 @@ import javax.xml.ws.Endpoint;
 public class ProcessPaymentEndpoint {
 
 	public static void main(String[] args) {
-		Endpoint.publish("http://localhost:1236/ProcessPayment", new ProcessPayment());
+		String endpointLocation = "http://localhost:1236/ProcessPayment";
+		Endpoint.publish(endpointLocation, new ProcessPayment());
+		System.out.println("published at " + endpointLocation);
+		System.out.println("Get the WSDL at " + endpointLocation + "?wsdl");
 	}
 
 }
