@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:www.iaas.uni-stuttgart.de="http://www.iaas.uni-stuttgart.de">
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:www.iaas.uni-stuttgart.de="http://www.iaas.uni-stuttgart.de"
+        xmlns:po="http://www.bpel4chor.org/splitProcess/test/services/ProcessOrder"
+        xmlns:pp="http://www.bpel4chor.org/splitProcess/test/services/ProcessPayment">
   <process name="www.iaas.uni-stuttgart.de:OrderingProcess">
     <active>true</active>
     <retired>false</retired>
@@ -8,10 +10,10 @@
       <service name="www.iaas.uni-stuttgart.de:OrderingProcess" port="OrderingProcessPort"/>
     </provide>
     <invoke partnerLink="processOrderPL">
-      <service name="www.iaas.uni-stuttgart.de:ProcessOrder" port="ProcessOrderPort"/>
+      <service name="po:ProcessOrder" port="ProcessOrderPort"/>
     </invoke>
     <invoke partnerLink="processPaymentPL">
-      <service name="www.iaas.uni-stuttgart.de:ProcessPayment" port="ProcessPaymentPort"/>
+      <service name="pp:ProcessPayment" port="ProcessPaymentPort"/>
     </invoke>
   </process>
 </deploy>

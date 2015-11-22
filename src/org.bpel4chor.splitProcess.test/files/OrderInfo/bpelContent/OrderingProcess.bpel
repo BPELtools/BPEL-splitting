@@ -1,6 +1,7 @@
 <bpel:process name="OrderingProcess" targetNamespace="http://www.iaas.uni-stuttgart.de"
 			  suppressJoinFailure="yes" xmlns:tns="http://www.iaas.uni-stuttgart.de"
 			  xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+			  xmlns:plts="http://www.iaas.uni-stuttgart.de/OrderingProcess/partnerLinkTypes"
 			  xmlns:po="http://www.bpel4chor.org/splitProcess/test/services/ProcessOrder"
 			  xmlns:pp="http://www.bpel4chor.org/splitProcess/test/services/ProcessPayment"
 			  exitOnStandardFault="no" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -25,9 +26,9 @@
 		<bpel:partnerLink name="orderingPL" partnerLinkType="tns:OrderingProcessPT"
 						  myRole="OrderProcessProvider"/>
 		<bpel:partnerLink name="processOrderPL"
-						  partnerLinkType="po:ProcessOrderPLT" partnerRole="ProcessOrder"/>
+						  partnerLinkType="plts:ProcessOrderPLT" partnerRole="ProcessOrder"/>
 		<bpel:partnerLink name="processPaymentPL"
-						  partnerLinkType="po:ProcessPaymentPLT" partnerRole="ProcessPayment"/>
+						  partnerLinkType="plts:ProcessPaymentPLT" partnerRole="ProcessPayment"/>
 	</bpel:partnerLinks>
 	<bpel:variables>
 		<bpel:variable name="order" messageType="tns:orderRequest"/>
