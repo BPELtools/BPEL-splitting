@@ -37,7 +37,7 @@
 
 		<bpel:variable name="paymentInfo" messageType="pp:processPayment"/>
 
-		<bpel:variable name="processOrderPLRequest" messageType="po:processOrder"/>
+		<bpel:variable name="processOrder" messageType="po:processOrder"/>
 	</bpel:variables>
 	<bpel:flow name="Flow">
 		<bpel:links>
@@ -71,9 +71,31 @@
 				</bpel:source>
 				<bpel:source linkName="AssignB2E"/>
 			</bpel:sources>
+			<!-- we assume that copy statements are executed from top to buttom. This is NOT required by the BPEL specification -->
+			<!-- initialize variable -->
+			<bpel:copy>
+				<bpel:from><bpel:literal><pp:PaymentInfo>
+					<pp:amt>0</pp:amt>
+					<pp:actNum></pp:actNum>
+				</pp:PaymentInfo></bpel:literal></bpel:from>
+				<bpel:to variable="paymentInfo" part="parameters" />
+			</bpel:copy>
+			<!-- initialize variable -->
+			<bpel:copy>
+				<bpel:from><bpel:literal><po:OrderInfo>
+					<po:acountNumber></po:acountNumber>
+					<po:oderStatus></po:oderStatus>
+					<po:orderTotalPrice>0</po:orderTotalPrice>
+					<po:status></po:status>
+					<po:numDeliveries>0</po:numDeliveries>
+				</po:OrderInfo>
+				</bpel:literal></bpel:from>
+				<bpel:to variable="paymentInfo" part="parameters" />
+			</bpel:copy>
+			<!-- page 53 states the relation of XPath expressions with parts and element declarations -->
 			<bpel:copy>
 				<bpel:from>$order.info/accountNumber</bpel:from>
-				<bpel:to>$paymentInfo.payload/actNum</bpel:to>
+				<bpel:to>$paymentInfo.parameters/actNum</bpel:to>
 			</bpel:copy>
 			<bpel:copy>
 				<bpel:from><![CDATA[string("Dear customer,...")]]></bpel:from>
@@ -81,7 +103,7 @@
 			</bpel:copy>
 			<bpel:copy>
 				<bpel:from><![CDATA[$order.info/orderTotalPrice + 5*$order.info/numDeliveries]]></bpel:from>
-				<bpel:to>$paymentInfo.payload/amt</bpel:to>
+				<bpel:to>$paymentInfo.parameters/amt</bpel:to>
 			</bpel:copy>
 		</bpel:assign>
 		<bpel:assign validate="no" name="C">
@@ -96,8 +118,8 @@
 				<bpel:to part="text" variable="response" />
 			</bpel:copy>
 			<bpel:copy>
-				<bpel:from><![CDATA[$paymentInfo.amt*0.9]]></bpel:from>
-				<bpel:to>$paymentInfo.payload/amt</bpel:to>
+				<bpel:from><![CDATA[$paymentInfo.parameters/amt*0.9]]></bpel:from>
+				<bpel:to>$paymentInfo.parameters/amt</bpel:to>
 			</bpel:copy>
 		</bpel:assign>
 		<bpel:assign validate="no" name="D">
@@ -108,18 +130,12 @@
 				<bpel:source linkName="AssignD2E"/>
 			</bpel:sources>
 			<bpel:copy>
-				<bpel:from>
-					<![CDATA[concat($response.text, " 5% discount")]]>
-				</bpel:from>
-				<bpel:to part="text" variable="response">
-				</bpel:to>
+				<bpel:from><![CDATA[concat($response.text, " 5% discount")]]></bpel:from>
+				<bpel:to part="text" variable="response" />
 			</bpel:copy>
 			<bpel:copy>
-				<bpel:from>
-					<![CDATA[$paymentInfo.amt*0.95]]>
-				</bpel:from>
-				<bpel:to part="amt" variable="paymentInfo">
-				</bpel:to>
+				<bpel:from><![CDATA[$paymentInfo.PaymentInfo/amt*0.95]]></bpel:from>
+				<bpel:to><![CDATA[$paymentInfo.PaymentInfo/amt]]></bpel:to>
 			</bpel:copy>
 		</bpel:assign>
 		<bpel:assign validate="no" name="E">
@@ -133,11 +149,11 @@
 			</bpel:sources>
 			<bpel:copy>
 				<bpel:from>price calculated</bpel:from>
-				<bpel:to part="text" variable="response" />
+				<bpel:to>$processOrder.parameters/orderStatus</bpel:to>
 			</bpel:copy>
 		</bpel:assign>
 		<bpel:invoke name="F" partnerLink="processOrderPL"
-					 operation="processOrder" portType="tns:ProcessOrder" inputVariable="processOrderPLRequest">
+					 operation="processOrder" portType="po:ProcessOrder" inputVariable="processOrder">
 			<bpel:targets>
 				<bpel:target linkName="AssignE2InvokeF"/>
 			</bpel:targets>
@@ -146,7 +162,7 @@
 				<bpel:source linkName="InvokeF2ReplyH"/>
 			</bpel:sources>
 		</bpel:invoke>
-		<bpel:invoke name="G" partnerLink="processPaymentPL" operation="processPayment" portType="tns:ProcessPayment"
+		<bpel:invoke name="G" partnerLink="processPaymentPL" operation="processPayment" portType="pp:ProcessPayment"
 					 inputVariable="paymentInfo">
 			<bpel:targets>
 				<bpel:target linkName="InvokeF2G"/>
