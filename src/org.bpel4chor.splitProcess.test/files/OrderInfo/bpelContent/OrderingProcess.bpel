@@ -98,7 +98,7 @@
 				<bpel:to>$paymentInfo.parameters/actNum</bpel:to>
 			</bpel:copy>
 			<bpel:copy>
-				<bpel:from><![CDATA[string("Dear customer,...")]]></bpel:from>
+				<bpel:from><bpel:literal>Dear customer, ...</bpel:literal></bpel:from>
 				<bpel:to part="text" variable="response" />
 			</bpel:copy>
 			<bpel:copy>
@@ -148,7 +148,7 @@
 				<bpel:source linkName="AssignE2InvokeF"/>
 			</bpel:sources>
 			<bpel:copy>
-				<bpel:from>price calculated</bpel:from>
+				<bpel:from><bpel:literal>price calculated</bpel:literal></bpel:from>
 				<bpel:to>$processOrder.parameters/orderStatus</bpel:to>
 			</bpel:copy>
 		</bpel:assign>
@@ -176,4 +176,3 @@
 		</bpel:reply>
 	</bpel:flow>
 </bpel:process>
-
