@@ -25,6 +25,7 @@
 					</sequence>
 				</complexType>
 			</element>
+			<element name="responsePayload" type="string"/>
 		</schema>
 	</types>
 
@@ -33,7 +34,7 @@
 	</message>
 
 	<message name="orderResponse">
-		<part name="text" type="xsd:string" />
+		<part name="text" element="tns:responsePayload" />
 	</message>
 	
 	<portType name="OrderingProcess">
@@ -47,10 +48,14 @@
 		<soap:binding style="document"
 			transport="http://schemas.xmlsoap.org/soap/http" />
 		<operation name="order">
-			<soap:operation soapAction="www.iaas.uni-stuttgart.de/order" />
-			<input name="order">
+			<soap:operation
+				soapAction="http://www.iaas.uni-stuttgart.de/order" />
+			<input name="orderMessage">
 				<soap:body use="literal" />
 			</input>
+			<output name="response">
+				<soap:body use="literal" />
+			</output>
 		</operation>
 	</binding>
 
