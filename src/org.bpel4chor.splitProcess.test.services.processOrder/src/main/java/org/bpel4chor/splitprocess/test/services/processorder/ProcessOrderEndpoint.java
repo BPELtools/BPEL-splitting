@@ -5,7 +5,7 @@ import javax.xml.ws.Endpoint;
 public class ProcessOrderEndpoint {
 
 	public static void main(String[] args) {
-		// Source: http://stackoverflow.com/a/16338394/873282
+		// Source: http://stackoverflow.com/a/16338394/873282 - works on JDK8
 		System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
 		System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
 		System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");

@@ -14,7 +14,7 @@
             <service name="po:ProcessOrderService" port="ProcessOrderPort"/>
         </invoke>
         <invoke partnerLink="processPaymentPL">
-            <service name="po:ProcessOrderService" port="ProcessOrderPort"/>
+            <service name="pp:ProcessPaymentService" port="ProcessPaymentPort"/>
         </invoke>
     </process>
 </deploy>
