@@ -8,33 +8,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
-/**
- * <p>Java class for anonymous complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="acountNumber" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="oderStatus" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="orderTotalPrice" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="numDeliveries" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "acountNumber",
-    "oderStatus",
+    "accountNumber",
+    "orderStatus",
     "orderTotalPrice",
     "status",
     "numDeliveries"
@@ -43,9 +20,9 @@ import javax.xml.bind.annotation.XmlType;
 public class OrderInfo {
 
     @XmlElement(required = true)
-    protected String acountNumber;
+    protected String accountNumber;
     @XmlElement(required = true)
-    protected String oderStatus;
+    protected String orderStatus;
     protected int orderTotalPrice;
     @XmlElement(required = true)
     protected String status;
@@ -59,8 +36,8 @@ public class OrderInfo {
      *     {@link String }
      *     
      */
-    public String getAcountNumber() {
-        return acountNumber;
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
     /**
@@ -71,8 +48,8 @@ public class OrderInfo {
      *     {@link String }
      *     
      */
-    public void setAcountNumber(String value) {
-        this.acountNumber = value;
+    public void setAccountNumber(String value) {
+        this.accountNumber = value;
     }
 
     /**
@@ -83,8 +60,8 @@ public class OrderInfo {
      *     {@link String }
      *     
      */
-    public String getOderStatus() {
-        return oderStatus;
+    public String getOrderStatus() {
+        return orderStatus;
     }
 
     /**
@@ -95,8 +72,8 @@ public class OrderInfo {
      *     {@link String }
      *     
      */
-    public void setOderStatus(String value) {
-        this.oderStatus = value;
+    public void setOrderStatus(String value) {
+        this.orderStatus = value;
     }
 
     /**

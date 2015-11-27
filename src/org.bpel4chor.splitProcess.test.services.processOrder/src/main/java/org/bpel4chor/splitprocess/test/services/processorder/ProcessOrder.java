@@ -20,7 +20,7 @@ public class ProcessOrder {
     public void processOrder(
         @WebParam(name = "OrderInfo", targetNamespace = "http://www.bpel4chor.org/splitProcess/test/services/ProcessOrder", partName = "payload")
         OrderInfo payload) {
-    	System.out.println("Retreived OrderInfo with status " + payload.oderStatus);
+        System.out.println("Retreived OrderInfo with status " + payload.orderStatus);
     }
 
 }
