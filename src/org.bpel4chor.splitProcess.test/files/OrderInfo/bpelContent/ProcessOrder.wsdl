@@ -18,15 +18,14 @@
     </message>
     <portType name="ProcessOrder">
         <operation name="processOrder">
-            <input wsam:Action="http://www.bpel4chor.org/splitProcess/test/services/ProcessOrder/processOrder"
+            <input wsam:Action="http://www.bpel4chor.org/splitProcess/test/services/ProcessOrder/ProcessOrder/processOrder"
                    message="tns:processOrder"></input>
         </operation>
     </portType>
     <binding name="ProcessOrderPortBinding" type="tns:ProcessOrder">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
         <operation name="processOrder">
-            <soap:operation
-                    soapAction="http://www.bpel4chor.org/splitProcess/test/services/ProcessOrder/processOrder"></soap:operation>
+            <soap:operation soapAction=""></soap:operation>
             <input>
                 <soap:body use="literal"></soap:body>
             </input>
