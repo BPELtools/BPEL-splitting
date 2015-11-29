@@ -14,6 +14,11 @@
         <plnk:role name="OrderProcessCallback" portType="tns:OrderingProcessCallback"/>
     </plnk:partnerLinkType>
 
+    <vprop:property name="correlProperty" type="xsd:string" />
+    <vprop:propertyAlias propertyName="tns:correlProperty" messageType="po:processOrder" part="parameters">
+            <vprop:query>po:orderNumber</vprop:query>
+    </vprop:propertyAlias>
+
     <import namespace="http://www.bpel4chor.org/splitProcess/test/services/ProcessOrder" location="ProcessOrder.wsdl"/>
 
     <types>

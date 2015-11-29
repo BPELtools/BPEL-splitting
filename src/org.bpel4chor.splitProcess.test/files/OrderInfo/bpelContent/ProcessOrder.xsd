@@ -7,6 +7,7 @@
 
     <xs:complexType name="processOrder">
         <xs:sequence>
+            <xs:element name="orderNumber" type="xs:string" form="qualified"></xs:element>
             <xs:element name="accountNumber" type="xs:string" form="qualified"></xs:element>
             <xs:element name="totalPrice" type="xs:double" form="qualified"></xs:element>
             <xs:element name="status" type="xs:string" form="qualified"></xs:element>

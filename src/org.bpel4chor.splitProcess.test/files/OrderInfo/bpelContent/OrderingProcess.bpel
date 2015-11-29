@@ -4,7 +4,6 @@
               xmlns:plts="http://www.iaas.uni-stuttgart.de/OrderingProcess/partnerLinkTypes"
               xmlns:po="http://www.bpel4chor.org/splitProcess/test/services/ProcessOrder"
               xmlns:pp="http://www.bpel4chor.org/splitProcess/test/services/ProcessPayment"
-              xmlns:iaas="http://www.iaas.uni-stuttgart.de"
               exitOnStandardFault="no" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
     <!-- Import the client WSDL -->
@@ -38,6 +37,10 @@
 
         <bpel:variable name="messageForProcessPaymentService" messageType="pp:processPayment"/>
     </bpel:variables>
+    <bpel:correlationSets>
+        <bpel:correlationSet name="CorrelationSet"
+                             properties="tns:correlProperty"/>
+    </bpel:correlationSets>
     <bpel:flow name="Flow">
         <bpel:links>
             <bpel:link name="ReceiveA2AssignB"/>
@@ -56,6 +59,9 @@
             <bpel:sources>
                 <bpel:source linkName="ReceiveA2AssignB"/>
             </bpel:sources>
+            <bpel:correlations>
+                <bpel:correlation set="CorrelationSet" initiate="yes" />
+            </bpel:correlations>
         </bpel:receive>
         <bpel:assign validate="no" name="B">
             <bpel:targets>

@@ -2035,6 +2035,9 @@ public class DataDependencyFragmenter {
 			Activity act = actIt.next();
 			if (act instanceof Receive) {
 				Receive receive = (Receive) act;
+				if (receive.getCorrelations() == null || receive.getCorrelations().getChildren() == null || receive.getCorrelations().getChildren().size() == 0) {
+					throw new IllegalStateException("Main process contains no correlations.");
+				}
 				if (receive.getCorrelations().getChildren().size() == 1) {
 					receiveList.add(receive);
 				} else {
