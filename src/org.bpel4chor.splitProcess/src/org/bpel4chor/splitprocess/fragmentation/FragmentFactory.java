@@ -193,7 +193,7 @@ public class FragmentFactory {
 			Property newCorrelProperty = FragmentDuplicator.copyProperty(correlProperty);
 			defn.addExtensibilityElement(newCorrelProperty);
 		} else {
-			throw new NullPointerException("Non correlation property is found in process "
+			throw new NullPointerException("No correlation property found in process "
 					+ fragProcessName);
 		}
 
